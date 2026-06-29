@@ -11,11 +11,16 @@ router.get('/', function(req, res, next) {
 router.get("/profile",isLoggedIn, function(req,res){
   res.render("profile");
 });
+router.get("/register", function(req, res) {
+    res.render("register");
+});
 router.post("/register", async function (req, res, next) {
   try {
     const userdata = new userModel({
-      username: req.body.username,
-      secret: req.body.secret,
+      fullname: req.body.fullname,
+    username: req.body.username,
+    email: req.body.email,
+    age: req.body.age
     });
 
     await userModel.register(userdata, req.body.password);
@@ -26,6 +31,9 @@ router.post("/register", async function (req, res, next) {
   } catch (err) {
     next(err);
   }
+});
+router.get("/login", function(req, res) {
+    res.render("login");
 });
 
 router.post("/login", passport.authenticate("local",{

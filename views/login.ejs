@@ -1,0 +1,122 @@
+<%- include("partials/header") %>
+
+<section class="min-h-[calc(100vh-80px)] flex items-center justify-center py-16 px-6">
+
+    <div class="w-full max-w-md">
+
+        <!-- Card -->
+        <div
+            class="rounded-3xl border border-slate-800 bg-slate-900/60 backdrop-blur-xl shadow-2xl shadow-blue-500/10 p-8">
+
+            <!-- Logo -->
+            <div class="text-center mb-8">
+
+                <h1 class="text-4xl font-extrabold tracking-tight">
+                    <span class="text-white">Repo</span>
+                    <span class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                        X
+                    </span>
+                </h1>
+
+                <p class="text-slate-400 mt-3">
+                    Welcome back! Login to your account.
+                </p>
+
+            </div>
+
+            <!-- Login Form -->
+            <form action="/login" method="POST" class="space-y-5">
+
+                <!-- Username -->
+                <div>
+
+                    <label class="block text-sm mb-2 text-slate-300">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="johndoe"
+                        required
+                        class="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white outline-none focus:border-blue-500 transition">
+
+                </div>
+
+                <!-- Password -->
+                <div>
+
+                    <div class="flex justify-between mb-2">
+
+                        <label class="text-sm text-slate-300">
+                            Password
+                        </label>
+
+                        <a href="#"
+                            class="text-sm text-blue-400 hover:text-blue-300 transition">
+
+                            Forgot Password?
+
+                        </a>
+
+                    </div>
+
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="••••••••"
+                        required
+                        class="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white outline-none focus:border-blue-500 transition">
+
+                </div>
+
+                <!-- Login Button -->
+
+                <button
+                    type="submit"
+                    class="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 font-semibold shadow-lg shadow-blue-600/30 hover:scale-[1.02] transition-all duration-300">
+
+                    Login
+
+                </button>
+
+            </form>
+
+            <!-- Divider -->
+
+            <div class="flex items-center my-6">
+
+                <div class="flex-1 h-px bg-slate-800"></div>
+
+                <span class="px-4 text-slate-500 text-sm">
+
+                    OR
+
+                </span>
+
+                <div class="flex-1 h-px bg-slate-800"></div>
+
+            </div>
+
+            <!-- Register -->
+
+            <p class="text-center text-slate-400">
+
+                Don't have an account?
+
+                <a href="/register"
+                    class="text-blue-400 hover:text-blue-300 font-medium transition">
+
+                    Create Account
+
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<%- include("partials/footer") %>
