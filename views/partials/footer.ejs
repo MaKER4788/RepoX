@@ -1,54 +1,191 @@
-</main>
+<footer class="bg-slate-950 border-t border-slate-800">
 
-<footer class="border-t border-slate-800 mt-20">
+    <div class="max-w-7xl mx-auto px-6 py-20">
 
-    <div class="max-w-7xl mx-auto px-6 py-10">
+        <div class="grid lg:grid-cols-5 md:grid-cols-2 gap-12">
 
-        <div class="flex flex-col md:flex-row justify-between items-center gap-5">
+            <!-- Brand -->
 
-            <div>
+            <div class="lg:col-span-2">
 
-                <h2 class="text-xl font-bold text-blue-500">
-                    Repo<span class="text-white">X</span>
-                </h2>
+                <a href="/" class="text-4xl font-extrabold">
 
-                <p class="text-slate-400 text-sm mt-2">
-                    Buy • Sell • Discover Software Projects
+                    <span class="text-white">Repo</span>
+
+                    <span
+                        class="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
+
+                        X
+
+                    </span>
+
+                </a>
+
+                <p class="mt-6 text-slate-400 leading-8 max-w-md">
+
+                    India's modern marketplace for buying and selling software
+                    projects, source code, AI applications and developer assets.
+
                 </p>
+
+                <!-- Social -->
+
+                <div class="flex gap-4 mt-8">
+
+                    <a href="#"
+                        class="h-12 w-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center hover:border-blue-500 hover:bg-slate-800 transition">
+
+                        🐙
+
+                    </a>
+
+                    <a href="#"
+                        class="h-12 w-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center hover:border-cyan-500 hover:bg-slate-800 transition">
+
+                        💼
+
+                    </a>
+
+                    <a href="#"
+                        class="h-12 w-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center hover:border-pink-500 hover:bg-slate-800 transition">
+
+                        📷
+
+                    </a>
+
+                    <a href="#"
+                        class="h-12 w-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center hover:border-sky-500 hover:bg-slate-800 transition">
+
+                        🐦
+
+                    </a>
+
+                </div>
 
             </div>
 
-            <div class="flex gap-6 text-slate-400 text-sm">
+            <!-- Marketplace -->
 
-                <a href="/" class="hover:text-white transition">
-                    Home
-                </a>
+            <div>
 
-                <a href="/marketplace" class="hover:text-white transition">
+                <h3 class="text-xl font-semibold mb-6">
+
                     Marketplace
-                </a>
 
-                <a href="/about" class="hover:text-white transition">
-                    About
-                </a>
+                </h3>
 
-                <a href="/contact" class="hover:text-white transition">
-                    Contact
-                </a>
+                <ul class="space-y-4 text-slate-400">
+
+                    <li><a href="/marketplace" class="hover:text-white transition">Browse Projects</a></li>
+
+                    <li><a href="/upload" class="hover:text-white transition">Sell Project</a></li>
+
+                    <li><a href="#" class="hover:text-white transition">Featured Projects</a></li>
+
+                    <li><a href="#" class="hover:text-white transition">Categories</a></li>
+
+                </ul>
+
+            </div>
+
+            <!-- Company -->
+
+            <div>
+
+                <h3 class="text-xl font-semibold mb-6">
+
+                    Company
+
+                </h3>
+
+                <ul class="space-y-4 text-slate-400">
+
+                    <li><a href="/" class="hover:text-white transition">Home</a></li>
+
+                    <li><a href="#" class="hover:text-white transition">About</a></li>
+
+                    <li><a href="#" class="hover:text-white transition">Contact</a></li>
+
+                    <li><a href="#" class="hover:text-white transition">Careers</a></li>
+
+                </ul>
+
+            </div>
+
+            <!-- Newsletter -->
+
+            <div>
+
+                <h3 class="text-xl font-semibold mb-6">
+
+                    Stay Updated
+
+                </h3>
+
+                <p class="text-slate-400 mb-6">
+
+                    Get updates about new projects and features.
+
+                </p>
+
+                <form class="space-y-4">
+
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 focus:border-blue-500 outline-none">
+
+                    <button
+                        class="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:scale-105 transition">
+
+                        Subscribe
+
+                    </button>
+
+                </form>
 
             </div>
 
         </div>
 
-        <div class="border-t border-slate-800 mt-8 pt-6 text-center text-slate-500 text-sm">
+        <!-- Divider -->
 
-            © <%= new Date().getFullYear() %> RepoX. All Rights Reserved.
+        <div class="my-12 h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent"></div>
+
+        <!-- Bottom -->
+
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+
+            <p class="text-slate-500 text-center md:text-left">
+
+                © 2026 <span class="text-white font-semibold">RepoX</span>. All rights reserved.
+
+            </p>
+
+            <div class="flex gap-8 text-slate-400">
+
+                <a href="#" class="hover:text-white transition">
+
+                    Privacy Policy
+
+                </a>
+
+                <a href="#" class="hover:text-white transition">
+
+                    Terms of Service
+
+                </a>
+
+                <a href="#" class="hover:text-white transition">
+
+                    Cookies
+
+                </a>
+
+            </div>
 
         </div>
 
     </div>
 
 </footer>
-<script src="/public/javascripts/navbar.js"></script>
-</body>
-</html>

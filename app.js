@@ -22,6 +22,10 @@ app.use(expressSession({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use((req, res, next) => {
+    res.locals.user = req.user || null;
+    next();
+});
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());

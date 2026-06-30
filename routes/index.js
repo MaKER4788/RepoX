@@ -48,6 +48,13 @@ router.get("/logout", function(req,res,next){
         res.redirect('/');
   });
 });
+router.get("/profile", isLoggedIn, function(req, res) {
+
+    res.render("profile", {
+        user: req.user
+    });
+
+});
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
