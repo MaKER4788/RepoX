@@ -1,0 +1,53 @@
+<%- include("partials/header") %>
+
+<div class="min-h-screen bg-slate-950 py-32">
+
+    <div class="max-w-5xl mx-auto px-6">
+
+        <div class="text-center mb-12">
+
+            <h1 class="text-5xl font-bold">
+
+                Upload Your
+
+                <span class="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
+
+                    Project
+
+                </span>
+
+            </h1>
+
+            <p class="text-slate-400 mt-5 text-lg">
+
+                Share your software project with thousands of developers and startups.
+
+            </p>
+
+        </div>
+
+        <form
+            action="/projects/create"
+            method="POST"
+            enctype="multipart/form-data"
+            class="rounded-3xl bg-slate-900/60 backdrop-blur-xl border border-slate-800 p-10 space-y-8">
+
+            <%- include("partials/upload/basicInfo") %>
+
+            <%- include("partials/upload/media") %>
+
+            <%- include("partials/upload/details") %>
+
+            <%- include("partials/upload/pricing") %>
+
+            <%- include("partials/upload/links") %>
+
+            <%- include("partials/upload/publish") %>
+
+        </form>
+
+    </div>
+
+</div>
+
+<%- include("partials/footer") %>

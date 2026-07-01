@@ -55,6 +55,9 @@ router.get("/profile", isLoggedIn, function(req, res) {
     });
 
 });
+router.get("/upload", isLoggedIn, (req, res) => {
+    res.render("upload");
+});
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
