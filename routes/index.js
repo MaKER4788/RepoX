@@ -3,14 +3,16 @@ var router = express.Router();
 const passport = require("passport");          // ✅ ADD THIS
 const LocalStrategy = require("passport-local").Strategy;
 const userModel = require("../models/user");
+const projectController = require("../controllers/projectController");
+const upload = require("../config/multer");
 passport.use(new LocalStrategy(userModel.authenticate()));
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
 });
-router.get("/profile",isLoggedIn, function(req,res){
-  res.render("profile");
-});
+router.get("/upload",function(req,res){
+  res.render("upload")
+})
 router.get("/register", function(req, res) {
     res.render("register");
 });
@@ -55,6 +57,8 @@ router.get("/profile", isLoggedIn, function(req, res) {
     });
 
 });
+
+
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
