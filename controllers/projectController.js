@@ -28,9 +28,7 @@ console.log(Array.isArray(req.body.price));
                 ? req.body.tags.split(",").map(item => item.trim())
                 : [],
 
-            thumbnail: req.files.thumbnail
-                ? req.files.thumbnail[0].filename
-                : "",
+            thumbnail: req.files.thumbnail[0].path.replace(/\\/g, "/"),
 
             screenshots: req.files.screenshots
                 ? req.files.screenshots.map(file => file.filename)

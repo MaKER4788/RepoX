@@ -5,6 +5,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const userModel = require("../models/user");
 const projectController = require("../controllers/projectController");
 const upload = require("../config/multer");
+const Project = require("../models/project");
 passport.use(new LocalStrategy(userModel.authenticate()));
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -53,6 +54,18 @@ router.get("/logout", function(req,res,next){
 router.get("/profile", isLoggedIn, function(req, res) {
 
     res.render("profile", {
+        user: req.user
+    });
+
+});
+router.get("/marketplace", async (req, res) => {
+
+    const projects = await Project.find()
+        .populate("owner")
+        .sort({ createdAt: -1 });
+
+    res.render("marketplace", {
+        projects,
         user: req.user
     });
 

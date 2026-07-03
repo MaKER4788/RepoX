@@ -1,0 +1,116 @@
+<section class="border-b border-slate-800 bg-slate-900/50 backdrop-blur-xl">
+
+    <div class="max-w-7xl mx-auto px-6 py-8">
+
+        <form action="/marketplace" method="GET">
+
+            <div class="grid md:grid-cols-5 gap-4">
+
+                <!-- Category -->
+                <div>
+
+                    <label class="block text-slate-400 text-sm mb-2">
+                        Category
+                    </label>
+
+                    <select
+                        name="category"
+                        class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 outline-none">
+
+                        <option value="">All Categories</option>
+                        <option>Web Development</option>
+                        <option>AI</option>
+                        <option>Mobile Apps</option>
+                        <option>Automation</option>
+                        <option>Cyber Security</option>
+                        <option>UI/UX</option>
+
+                    </select>
+
+                </div>
+
+                <!-- Price -->
+
+                <div>
+
+                    <label class="block text-slate-400 text-sm mb-2">
+
+                        Price
+
+                    </label>
+
+                    <select
+                        name="price"
+                        class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 outline-none">
+
+                        <option value="">Any Price</option>
+                        <option value="0">Free</option>
+                        <option value="500">Under ₹500</option>
+                        <option value="1000">Under ₹1000</option>
+                        <option value="5000">Under ₹5000</option>
+
+                    </select>
+
+                </div>
+
+                <!-- Sort -->
+
+                <div>
+
+                    <label class="block text-slate-400 text-sm mb-2">
+
+                        Sort By
+
+                    </label>
+
+                    <select
+                        name="sort"
+                        class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 outline-none">
+
+                        <option value="latest">Latest</option>
+                        <option value="oldest">Oldest</option>
+                        <option value="priceLow">Price: Low → High</option>
+                        <option value="priceHigh">Price: High → Low</option>
+
+                    </select>
+
+                </div>
+
+                <!-- Tech -->
+
+                <div>
+
+                    <label class="block text-slate-400 text-sm mb-2">
+
+                        Technology
+
+                    </label>
+
+                    <input
+                        type="text"
+                        name="tech"
+                        placeholder="React, Node..."
+                        class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-blue-500 outline-none">
+
+                </div>
+
+                <!-- Button -->
+
+                <div class="flex items-end">
+
+                    <button
+                        class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 transition font-semibold">
+
+                        Apply Filters
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
