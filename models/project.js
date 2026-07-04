@@ -67,7 +67,16 @@ const projectSchema = new mongoose.Schema({
     createdAt:{
         type:Date,
         default:Date.now
-    }
+    },
+    features: String,
+
+    installation: String,
+
+    requirements: String,
+
+    included: String,
+
+    refundPolicy: String,
 
 });
 

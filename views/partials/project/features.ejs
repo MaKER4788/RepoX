@@ -1,0 +1,103 @@
+<section class="rounded-3xl border border-slate-800 bg-slate-900 p-8 space-y-10">
+
+    <% if(project.features){ %>
+
+        <div>
+
+            <h2 class="text-2xl font-bold text-white mb-4">
+
+                ✨ Features
+
+            </h2>
+
+            <p class="text-slate-300 leading-8 whitespace-pre-line">
+
+                <%= project.features %>
+
+            </p>
+
+        </div>
+
+    <% } %>
+
+    <% if(project.included){ %>
+
+        <div>
+
+            <h2 class="text-2xl font-bold text-white mb-4">
+
+                📦 What's Included
+
+            </h2>
+
+            <p class="text-slate-300 leading-8 whitespace-pre-line">
+
+                <%= project.included %>
+
+            </p>
+
+        </div>
+
+    <% } %>
+
+    <% if(project.requirements){ %>
+
+        <div>
+
+            <h2 class="text-2xl font-bold text-white mb-4">
+
+                ⚙️ Requirements
+
+            </h2>
+
+            <p class="text-slate-300 leading-8 whitespace-pre-line">
+
+                <%= project.requirements %>
+
+            </p>
+
+        </div>
+
+    <% } %>
+
+    <% if(project.installation){ %>
+
+        <div>
+
+            <h2 class="text-2xl font-bold text-white mb-4">
+
+                🚀 Installation
+
+            </h2>
+
+            <p class="text-slate-300 leading-8 whitespace-pre-line">
+
+                <%= project.installation %>
+
+            </p>
+
+        </div>
+
+    <% } %>
+
+    <% if(project.changelog){ %>
+
+        <div>
+
+            <h2 class="text-2xl font-bold text-white mb-4">
+
+                📝 Changelog
+
+            </h2>
+
+            <p class="text-slate-300 leading-8 whitespace-pre-line">
+
+                <%= project.changelog %>
+
+            </p>
+
+        </div>
+
+    <% } %>
+
+</section>

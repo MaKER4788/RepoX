@@ -1,0 +1,143 @@
+<div class="sticky top-8 space-y-6">
+
+    <!-- Purchase Card -->
+
+    <div class="rounded-3xl border border-slate-800 bg-slate-900 p-8">
+
+        <!-- Price -->
+
+        <div class="flex items-center justify-between">
+
+            <span class="text-slate-400 text-lg">
+
+                Price
+
+            </span>
+
+            <span class="text-4xl font-bold text-green-400">
+
+                ₹<%= project.price %>
+
+            </span>
+
+        </div>
+
+        <!-- Discount -->
+
+        <% if(project.discount > 0){ %>
+
+            <div class="mt-4">
+
+                <span class="inline-block px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-sm">
+
+                    <%= project.discount %>% OFF
+
+                </span>
+
+            </div>
+
+        <% } %>
+
+        <!-- Buttons -->
+
+        <div class="mt-8 space-y-4">
+
+            <button
+                class="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-700 transition font-semibold">
+
+                🛒 Buy Now
+
+            </button>
+
+            <button
+                class="w-full py-4 rounded-xl border border-slate-700 hover:border-pink-500 transition">
+
+                ❤️ Add to Wishlist
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Details -->
+
+    <div class="rounded-3xl border border-slate-800 bg-slate-900 p-8">
+
+        <h2 class="text-xl font-semibold text-white mb-6">
+
+            Project Details
+
+        </h2>
+
+        <div class="space-y-5 text-sm">
+
+            <div class="flex justify-between">
+
+                <span class="text-slate-400">
+
+                    License
+
+                </span>
+
+                <span class="text-white">
+
+                    <%= project.license || "Single Use" %>
+
+                </span>
+
+            </div>
+
+            <div class="flex justify-between">
+
+                <span class="text-slate-400">
+
+                    Support
+
+                </span>
+
+                <span class="text-white">
+
+                    <%= project.support || "No Support" %>
+
+                </span>
+
+            </div>
+
+            <div class="flex justify-between">
+
+                <span class="text-slate-400">
+
+                    Version
+
+                </span>
+
+                <span class="text-white">
+
+                    <%= project.version || "1.0.0" %>
+
+                </span>
+
+            </div>
+
+            <div class="flex justify-between">
+
+                <span class="text-slate-400">
+
+                    Published
+
+                </span>
+
+                <span class="text-white">
+
+                    <%= new Date(project.createdAt).toLocaleDateString() %>
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -29,13 +29,15 @@ console.log(Array.isArray(req.body.price));
                 : [],
 
             thumbnail: req.files.thumbnail[0].path.replace(/\\/g, "/"),
-
             screenshots: req.files.screenshots
-                ? req.files.screenshots.map(file => file.filename)
-                : [],
+        ? req.files.screenshots.map(file =>
+        file.path.replace(/\\/g, "/")
+               )
+                 : [],
+            
 
             zipFile: req.files.projectZip
-                ? req.files.projectZip[0].filename
+                ? req.files.projectZip[0].Zfilename
                 : "",
 
             documentation: req.files.documentation
@@ -62,7 +64,16 @@ console.log(Array.isArray(req.body.price));
 
             changelog: req.body.changelog,
 
-            published: req.body.action === "publish"
+            published: req.body.action === "publish",
+            features: req.body.features,
+
+installation: req.body.installation,
+
+requirements: req.body.requirements,
+
+included: req.body.included,
+
+refundPolicy: req.body.refundPolicy
 
         });
         console.log("Saved Project =", project);
