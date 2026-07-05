@@ -19,7 +19,13 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
+    },
+    wishlist: [
+    {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Project"
     }
+]
 });
 userSchema.plugin(passportLocalMongoose);
 

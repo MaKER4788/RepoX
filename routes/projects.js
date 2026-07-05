@@ -25,5 +25,27 @@ router.post(
 
     projectController.createProject
 );
+router.get("/projects/:id", async (req, res) => {
+
+    const project = await Project.findById(req.params.id)
+        .populate("owner");
+
+    if (!project) {
+        return res.status(404).send("Project not found");
+    }
+
+    const relatedProjects = await Project.find({
+        category: project.category,
+        _id: { $ne: project._id }
+    })
+    .populate("owner")
+    .limit(3);
+
+    res.render("project", {
+        project,
+        relatedProjects
+    });
+
+});
 
 module.exports = router;

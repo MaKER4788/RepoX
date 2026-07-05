@@ -1,6 +1,39 @@
 <%- include("partials/header") %>
 
 <main class="min-h-screen bg-slate-950">
+  <form action="/marketplace" method="GET" class="flex gap-4">
+
+    <input
+        type="text"
+        name="search"
+        value="<%= search %>"
+        placeholder="Search projects..."
+        class="flex-1 px-5 py-3 rounded-xl bg-slate-900 border border-slate-700">
+
+    <button
+        class="px-8 py-3 rounded-xl bg-blue-600 hover:bg-blue-700">
+
+        Search
+
+    </button>
+    <select
+    name="category"
+    class="px-4 rounded-xl bg-slate-900 border border-slate-700">
+
+    <option value="All">All</option>
+
+    <option value="Web Development">Web Development</option>
+
+    <option value="AI">AI</option>
+
+    <option value="Mobile Apps">Mobile Apps</option>
+
+    <option value="Desktop Apps">Desktop Apps</option>
+
+</select>
+
+
+</form>
 
     <!-- Search -->
     <%- include("partials/marketplace/search") %>

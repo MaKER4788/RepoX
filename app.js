@@ -11,6 +11,10 @@ const passport = require('passport');
 const expressSession = require("express-session");
 const flash = require("connect-flash");
 const projectRoutes = require("./routes/projects");
+const marketplaceRoutes = require("./routes/marketplace");
+const profileroutes = require("./routes/profile");
+const authRoutes = require("./routes/auth");
+const wishlistRoutes = require("./routes/wishlist");
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -42,6 +46,10 @@ app.use("/uploads", express.static("uploads"));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/projects', projectRoutes);
+app.use('/marketplace', marketplaceRoutes);
+app.use('/profile', profileroutes);
+app.use('/', authRoutes);
+app.use('/wishlist', wishlistRoutes);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
