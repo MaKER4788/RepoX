@@ -7,8 +7,8 @@ router.get("/marketplace", async (req, res) => {
 
     const projects = await Project.find()
         .populate("owner")
-        .sort({ createdAt: -1 });
-
+        .sort({ createdAt: -1});
+        
     res.render("marketplace", {
         projects,
         user: req.user
