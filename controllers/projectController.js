@@ -91,6 +91,23 @@ refundPolicy: req.body.refundPolicy
 
     }
 };
+exports.editProjectPage = async (req, res) => {
+
+    const project = await Project.findById(req.params.id);
+
+    if (!project) {
+        return res.status(404).send("Project not found");
+    }
+
+    if (project.owner.toString() !== req.user._id.toString()) {
+        return res.status(403).send("Unauthorized");
+    }
+
+    res.render("editProject", {
+        project
+    });
+
+};
 exports.updateProject = async (req, res) => {
 
     try {
@@ -104,6 +121,20 @@ exports.updateProject = async (req, res) => {
         if (project.owner.toString() !== req.user._id.toString()) {
             return res.status(403).send("Unauthorized");
         }
+        if (req.files?.thumbnail) {
+    project.thumbnail = req.files.thumbnail[0].path.replace(/\\/g, "/");
+}
+        if (req.files?.screenshots) {
+    project.screenshots = req.files.screenshots.map(file =>
+        file.path.replace(/\\/g, "/")
+    );
+}
+        if (req.files?.projectZip) {
+    project.zipFile = req.files.projectZip[0].filename;
+}
+        if (req.files?.documentation) {
+    project.documentation = req.files.documentation[0].filename;
+}
 
         project.title = req.body.title;
         project.shortDescription = req.body.shortDescription;
@@ -130,8 +161,38 @@ exports.updateProject = async (req, res) => {
         project.version = req.body.version;
         project.lastUpdated = req.body.lastUpdated;
         project.changelog = req.body.changelog;
-
+        project.features = req.body.features;
+        project.installation = req.body.installation;
+        project.requirements = req.body.requirements;
+        project.included = req.body.included;
+        project.refundPolicy = req.body.refundPolicy;
         await project.save();
+
+        res.redirect("/dashboard");
+
+    } catch (err) {
+
+        console.error(err);
+        res.status(500).send(err.message);
+
+    }
+
+};
+exports.deleteProject = async (req, res) => {
+
+    try {
+
+        const project = await Project.findById(req.params.id);
+
+        if (!project) {
+            return res.status(404).send("Project not found");
+        }
+
+        if (project.owner.toString() !== req.user._id.toString()) {
+            return res.status(403).send("Unauthorized");
+        }
+
+        await Project.findByIdAndDelete(req.params.id);
 
         res.redirect("/dashboard");
 

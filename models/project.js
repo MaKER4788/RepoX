@@ -78,6 +78,12 @@ const projectSchema = new mongoose.Schema({
 
     refundPolicy: String,
 
+    refundPolicy: String,
+features: String,
+installation: String,
+requirements: String,
+included: String,
+
 });
 
 module.exports = mongoose.model("Project",projectSchema);

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const Project = require("../models/project");
 const upload = require("../config/multer");
 const projectController = require("../controllers/projectController");
 
@@ -26,7 +26,7 @@ router.post(
 
     projectController.createProject
 );
-router.get("/projects/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
 
     const project = await Project.findById(req.params.id)
         .populate("owner");
@@ -48,5 +48,26 @@ router.get("/projects/:id", async (req, res) => {
     });
 
 });
+router.get(
+    "/:id/edit",
+    isLoggedIn,
+    projectController.editProjectPage
+);
 
+router.post(
+    "/:id/edit",
+    isLoggedIn,
+    upload.fields([
+        { name: "thumbnail", maxCount: 1 },
+        { name: "screenshots", maxCount: 10 },
+        { name: "projectZip", maxCount: 1 },
+        { name: "documentation", maxCount: 1 }
+    ]),
+    projectController.updateProject
+);
+router.post(
+    "/:id/delete",
+    isLoggedIn,
+    projectController.deleteProject
+);
 module.exports = router;

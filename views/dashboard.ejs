@@ -9,7 +9,35 @@ My Projects
 </h1>
 
 <% projects.forEach(project=>{ %>
+    
+<div class="flex gap-3 mt-5">
 
+    <a href="/projects/<%= project._id %>"
+       class="flex-1 text-center py-2 rounded-lg bg-slate-700 hover:bg-slate-600">
+        👁 View
+    </a>
+
+    <a href="/projects/<%= project._id %>/edit"
+       class="flex-1 text-center py-2 rounded-lg bg-blue-600 hover:bg-blue-700">
+        ✏ Edit
+    </a>
+
+    <form
+        action="/projects/<%= project._id %>/delete"
+        method="POST"
+        onsubmit="return confirm('Delete this project?')"
+        class="flex-1">
+
+        <button
+            class="w-full py-2 rounded-lg bg-red-600 hover:bg-red-700">
+
+            🗑 Delete
+
+        </button>
+
+    </form>
+
+</div>
 <div class="border rounded-xl p-6 mb-4">
 
 <h2><%= project.title %></h2>
@@ -21,6 +49,9 @@ My Projects
 </div>
 
 <% }) %>
+
+    
+    
 
 </main>
 

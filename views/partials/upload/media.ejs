@@ -29,6 +29,16 @@
                 Project Thumbnail
 
             </label>
+            <% if (project?.thumbnail) { %>
+
+<div class="mb-4">
+    <img
+        src="/<%= project.thumbnail %>"
+        alt="Thumbnail"
+        class="w-48 rounded-xl border border-slate-700">
+</div>
+
+<% } %>
 
             <div
                 class="border-2 border-dashed border-slate-700 rounded-2xl p-8 text-center hover:border-blue-500 transition">
@@ -87,7 +97,21 @@
                     Upload multiple screenshots
 
                 </p>
+                <% if (project?.screenshots?.length) { %>
 
+<div class="grid grid-cols-3 gap-3 mb-4">
+
+    <% project.screenshots.forEach(image => { %>
+
+        <img
+            src="/<%= image %>"
+            class="rounded-lg border border-slate-700">
+
+    <% }) %>
+
+</div>
+
+<% } %>
                 <input
                     type="file"
                     name="screenshots"
@@ -116,6 +140,13 @@
                 Project ZIP
 
             </label>
+            <% if(project?.zipFile){ %>
+
+<p class="text-green-400 mb-3">
+    Current File: <%= project.zipFile %>
+</p>
+
+<% } %>
 
             <input
                 type="file"
@@ -134,7 +165,13 @@
                 Documentation (Optional)
 
             </label>
+           <% if(project?.documentation){ %>
 
+<p class="text-blue-400 mb-3">
+    Current File: <%= project.documentation %>
+</p>
+
+<% } %>
             <input
                 type="file"
                 name="documentation"
@@ -154,11 +191,11 @@
             </label>
 
             <input
-                type="url"
-                name="demoVideo"
-                placeholder="https://youtube.com/..."
-                class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-red-500 outline-none transition">
-
+type="url"
+name="demoVideo"
+value="<%= project?.demoVideo || '' %>"
+placeholder="https://youtube.com/..."
+class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-red-500 outline-none transition">
         </div>
 
     </div>
