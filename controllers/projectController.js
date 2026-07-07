@@ -37,7 +37,7 @@ console.log(Array.isArray(req.body.price));
             
 
             zipFile: req.files.projectZip
-                ? req.files.projectZip[0].Zfilename
+                ? req.files.projectZip[0].filename
                 : "",
 
             documentation: req.files.documentation
@@ -90,4 +90,56 @@ refundPolicy: req.body.refundPolicy
     res.status(500).send(err.message);
 
     }
+};
+exports.updateProject = async (req, res) => {
+
+    try {
+
+        const project = await Project.findById(req.params.id);
+
+        if (!project) {
+            return res.status(404).send("Project not found");
+        }
+
+        if (project.owner.toString() !== req.user._id.toString()) {
+            return res.status(403).send("Unauthorized");
+        }
+
+        project.title = req.body.title;
+        project.shortDescription = req.body.shortDescription;
+        project.description = req.body.description;
+        project.category = req.body.category;
+
+        project.techStack = req.body.techStack
+            ? req.body.techStack.split(",").map(item => item.trim())
+            : [];
+
+        project.tags = req.body.tags
+            ? req.body.tags.split(",").map(item => item.trim())
+            : [];
+
+        project.price = Number(req.body.price);
+        project.discount = Number(req.body.discount);
+
+        project.liveDemo = req.body.liveDemo;
+        project.github = req.body.github;
+        project.supportEmail = req.body.supportEmail;
+
+        project.license = req.body.license;
+        project.support = req.body.support;
+        project.version = req.body.version;
+        project.lastUpdated = req.body.lastUpdated;
+        project.changelog = req.body.changelog;
+
+        await project.save();
+
+        res.redirect("/dashboard");
+
+    } catch (err) {
+
+        console.error(err);
+        res.status(500).send(err.message);
+
+    }
+
 };
