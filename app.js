@@ -16,6 +16,7 @@ const profileroutes = require("./routes/profile");
 const authRoutes = require("./routes/auth");
 const wishlistRoutes = require("./routes/wishlist");
 const dashboardRoutes = require("./routes/dashboard");
+const reviewRoutes = require("./routes/review");
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -52,6 +53,7 @@ app.use('/profile', profileroutes);
 app.use('/', authRoutes);
 app.use('/wishlist', wishlistRoutes);
 app.use('/dashboard', dashboardRoutes);
+app.use("/reviews", reviewRoutes);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

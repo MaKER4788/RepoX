@@ -204,3 +204,40 @@ exports.deleteProject = async (req, res) => {
     }
 
 };
+exports.getProject = async (req, res) => {
+
+    try {
+
+        const project = await Project.findById(req.params.id)
+            .populate("owner")
+            .populate({
+                path: "reviews",
+                populate: {
+                    path: "user"
+                }
+            });
+
+        if (!project) {
+            return res.status(404).send("Project not found");
+        }
+
+        const relatedProjects = await Project.find({
+            category: project.category,
+            _id: { $ne: project._id }
+        })
+        .populate("owner")
+        .limit(3);
+
+        res.render("project", {
+            project,
+            relatedProjects
+        });
+
+    } catch (err) {
+
+        console.error(err);
+        res.status(500).send(err.message);
+
+    }
+
+};

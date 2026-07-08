@@ -83,7 +83,11 @@ features: String,
 installation: String,
 requirements: String,
 included: String,
-
+reviews: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "review"
+}],
 });
+
 
 module.exports = mongoose.model("Project",projectSchema);
