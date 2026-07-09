@@ -9,6 +9,7 @@
     "cloudinary": "^2.10.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.4",
+    "crypto": "^1.0.1",
     "debug": "~2.6.9",
     "dotenv": "^17.4.2",
     "ejs": "~2.6.1",
@@ -22,7 +23,8 @@
     "multer": "^2.2.0",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^9.1.0"
+    "passport-local-mongoose": "^9.1.0",
+    "razorpay": "^2.9.6"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.1",
