@@ -1,3 +1,4 @@
+require("dotenv").config();
 const User = require("./models/user");
 var createError = require('http-errors');
 var express = require('express');
@@ -9,6 +10,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const passport = require('passport');
 const expressSession = require("express-session");
+const MongoStore = require("connect-mongo").MongoStore;
 const flash = require("connect-flash");
 const projectRoutes = require("./routes/projects");
 const marketplaceRoutes = require("./routes/marketplace");
@@ -21,10 +23,18 @@ var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.locals.mediaUrl = function (mediaPath) {
+    if (!mediaPath) return "";
+    return /^https?:\/\//.test(mediaPath) ? mediaPath : "/" + mediaPath;
+};
 app.use(expressSession({
-    secret: "hell",
+    secret: process.env.SESSION_SECRET || "hell",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGO_URI || "mongodb://127.0.0.1:27017/resting"
+    })
 }));
 
 app.use(passport.initialize());

@@ -3,7 +3,7 @@ const { default: passportLocalMongoose } = require("passport-local-mongoose");
 
 
 
-mongoose.connect("mongodb://127.0.0.1:27017/resting");
+mongoose.connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/resting");
 
 const userSchema = new mongoose.Schema({
     fullname: {

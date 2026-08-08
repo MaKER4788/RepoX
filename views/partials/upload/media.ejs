@@ -33,7 +33,7 @@
 
 <div class="mb-4">
     <img
-        src="/<%= project.thumbnail %>"
+        src="<%= mediaUrl(project.thumbnail) %>"
         alt="Thumbnail"
         class="w-48 rounded-xl border border-slate-700">
 </div>
@@ -104,7 +104,7 @@
     <% project.screenshots.forEach(image => { %>
 
         <img
-            src="/<%= image %>"
+            src="<%= mediaUrl(image) %>"
             class="rounded-lg border border-slate-700">
 
     <% }) %>

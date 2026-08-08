@@ -1,12 +1,27 @@
 
 
 const Project = require("../models/project");
+const { uploadBuffer } = require("../config/cloudinary");
 
 exports.createProject = async (req, res) => {
-        console.log(req.body.price);
-console.log(typeof req.body.price);
-console.log(Array.isArray(req.body.price));
     try {
+
+        const thumbnail = req.files?.thumbnail?.[0]?.buffer
+            ? await uploadBuffer(req.files.thumbnail[0].buffer, "repox/thumbnails")
+            : "";
+
+        const screenshots = [];
+        for (const file of req.files?.screenshots || []) {
+            screenshots.push(await uploadBuffer(file.buffer, "repox/screenshots"));
+        }
+
+        const zipFile = req.files?.projectZip?.[0]?.buffer
+            ? await uploadBuffer(req.files.projectZip[0].buffer, "repox/zips")
+            : "";
+
+        const documentation = req.files?.documentation?.[0]?.buffer
+            ? await uploadBuffer(req.files.documentation[0].buffer, "repox/docs")
+            : "";
 
         const project = await Project.create({
 
@@ -28,21 +43,12 @@ console.log(Array.isArray(req.body.price));
                 ? req.body.tags.split(",").map(item => item.trim())
                 : [],
 
-            thumbnail: req.files.thumbnail[0].path.replace(/\\/g, "/"),
-            screenshots: req.files.screenshots
-        ? req.files.screenshots.map(file =>
-        file.path.replace(/\\/g, "/")
-               )
-                 : [],
-            
+            thumbnail,
+            screenshots,
 
-            zipFile: req.files.projectZip
-                ? req.files.projectZip[0].filename
-                : "",
+            zipFile,
 
-            documentation: req.files.documentation
-                ? req.files.documentation[0].filename
-                : "",
+            documentation,
 
             liveDemo: req.body.liveDemo,
 
@@ -121,19 +127,20 @@ exports.updateProject = async (req, res) => {
         if (project.owner.toString() !== req.user._id.toString()) {
             return res.status(403).send("Unauthorized");
         }
-        if (req.files?.thumbnail) {
-    project.thumbnail = req.files.thumbnail[0].path.replace(/\\/g, "/");
+        if (req.files?.thumbnail?.[0]?.buffer) {
+    project.thumbnail = await uploadBuffer(req.files.thumbnail[0].buffer, "repox/thumbnails");
 }
-        if (req.files?.screenshots) {
-    project.screenshots = req.files.screenshots.map(file =>
-        file.path.replace(/\\/g, "/")
-    );
+        if (req.files?.screenshots?.length) {
+    project.screenshots = [];
+    for (const file of req.files.screenshots) {
+        project.screenshots.push(await uploadBuffer(file.buffer, "repox/screenshots"));
+    }
 }
-        if (req.files?.projectZip) {
-    project.zipFile = req.files.projectZip[0].filename;
+        if (req.files?.projectZip?.[0]?.buffer) {
+    project.zipFile = await uploadBuffer(req.files.projectZip[0].buffer, "repox/zips");
 }
-        if (req.files?.documentation) {
-    project.documentation = req.files.documentation[0].filename;
+        if (req.files?.documentation?.[0]?.buffer) {
+    project.documentation = await uploadBuffer(req.files.documentation[0].buffer, "repox/docs");
 }
 
         project.title = req.body.title;
