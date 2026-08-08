@@ -3,6 +3,7 @@ const router = express.Router();
 
 const passport = require("passport");
 const authController = require("../controllers/authController");
+const userModel = require("../models/user");
 const { isLoggedIn } = require("../middlewares/middleware");
 
 // Register

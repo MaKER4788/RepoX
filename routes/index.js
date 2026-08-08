@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 router.get("/upload",function(req,res){
-  res.render("upload")
+  res.render("upload",{project:null})
 })
 
 

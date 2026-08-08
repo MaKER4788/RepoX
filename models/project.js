@@ -78,12 +78,7 @@ const projectSchema = new mongoose.Schema({
 
     refundPolicy: String,
 
-    refundPolicy: String,
-features: String,
-installation: String,
-requirements: String,
-included: String,
-reviews: [{
+    reviews: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "review"
 }],
