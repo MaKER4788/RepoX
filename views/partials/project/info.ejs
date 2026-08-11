@@ -25,17 +25,17 @@
     <div class="flex flex-wrap gap-6 mt-8 text-sm text-slate-400">
 
         <span>
-            📂 <strong class="text-white">Category:</strong>
+             <strong class="text-white">Category:</strong>
             <%= project.category %>
         </span>
 
         <span>
-            📦 <strong class="text-white">Version:</strong>
+             <strong class="text-white">Version:</strong>
             <%= project.version || "1.0.0" %>
         </span>
 
         <span>
-            📅 <strong class="text-white">Updated:</strong>
+             <strong class="text-white">Updated:</strong>
             <%= project.lastUpdated ? new Date(project.lastUpdated).toLocaleDateString() : "N/A" %>
         </span>
 

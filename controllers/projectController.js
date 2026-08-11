@@ -90,7 +90,7 @@ refundPolicy: req.body.refundPolicy
 
     } catch (err) {
 
-       console.error("❌ ERROR:");
+       console.error(" ERROR:");
     console.error(err);
     console.error(err.stack);
     res.status(500).send(err.message);

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const passport = require("passport");          // ✅ ADD THIS
+const passport = require("passport");          //  ADD THIS
 const LocalStrategy = require("passport-local").Strategy;
 const userModel = require("../models/user");
 const projectController = require("../controllers/projectController");
