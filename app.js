@@ -64,6 +64,12 @@ app.use('/', authRoutes);
 app.use('/wishlist', wishlistRoutes);
 app.use('/dashboard', dashboardRoutes);
 app.use("/reviews", reviewRoutes);
+
+// Chrome DevTools well-known probe — respond with empty settings so it doesn't 404
+app.get('/.well-known/appspecific/com.chrome.devtools.json', (req, res) => {
+  res.json({});
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
