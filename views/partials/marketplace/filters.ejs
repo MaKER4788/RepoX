@@ -1,46 +1,86 @@
-<section class="border-b border-white/10 bg-neutral-900/50">
-    <div class="max-w-7xl mx-auto px-6 py-4">
-        <form action="/marketplace" method="GET">
-            <div class="flex flex-wrap items-end gap-3">
-                <div>
-                    <label class="block text-[#a1a1a1] text-xs mb-1">Category</label>
-                    <select name="category" class="bg-neutral-800 border-white/10 border border-solid rounded-lg px-3 py-2 text-sm text-neutral-50 outline-none focus:border-[oklch(0.55_0.19_255)]">
-                        <option value="">All</option>
-                        <option <%= category==='AI' ? 'selected' : '' %>>AI</option>
-                        <option <%= category==='Web Development' ? 'selected' : '' %>>Web Development</option>
-                        <option <%= category==='Mobile Apps' ? 'selected' : '' %>>Mobile Apps</option>
-                        <option <%= category==='Backend' ? 'selected' : '' %>>Backend</option>
-                        <option <%= category==='SaaS' ? 'selected' : '' %>>SaaS</option>
-                        <option <%= category==='E-commerce' ? 'selected' : '' %>>E-commerce</option>
-                        <option <%= category==='Developer Tools' ? 'selected' : '' %>>Developer Tools</option>
-                        <option <%= category==='Data & Analytics' ? 'selected' : '' %>>Data & Analytics</option>
-                        <option <%= category==='Automation' ? 'selected' : '' %>>Automation</option>
-                        <option <%= category==='Games' ? 'selected' : '' %>>Games</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-[#a1a1a1] text-xs mb-1">Min Price</label>
-                    <input type="number" name="min" value="<%= min || '' %>" placeholder="₹" class="bg-neutral-800 border-white/10 border border-solid rounded-lg px-3 py-2 text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] w-24">
-                </div>
-                <div>
-                    <label class="block text-[#a1a1a1] text-xs mb-1">Max Price</label>
-                    <input type="number" name="max" value="<%= max || '' %>" placeholder="₹" class="bg-neutral-800 border-white/10 border border-solid rounded-lg px-3 py-2 text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] w-24">
-                </div>
-                <div>
-                    <label class="block text-[#a1a1a1] text-xs mb-1">Sort</label>
-                    <select name="sort" class="bg-neutral-800 border-white/10 border border-solid rounded-lg px-3 py-2 text-sm text-neutral-50 outline-none focus:border-[oklch(0.55_0.19_255)]">
-                        <option value="newest" <%= sort==='newest' ? 'selected' : '' %>>Newest</option>
-                        <option value="oldest" <%= sort==='oldest' ? 'selected' : '' %>>Oldest</option>
-                        <option value="low" <%= sort==='low' ? 'selected' : '' %>>Price: Low</option>
-                        <option value="high" <%= sort==='high' ? 'selected' : '' %>>Price: High</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-[#a1a1a1] text-xs mb-1">Tech</label>
-                    <input type="text" name="tech" placeholder="React, Node..." class="bg-neutral-800 border-white/10 border border-solid rounded-lg px-3 py-2 text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] w-32">
-                </div>
-                <button class="bg-[oklch(0.55_0.19_255)] font-medium rounded-lg text-white text-sm px-4 py-2 h-[38px] hover:opacity-90 transition">Apply</button>
-            </div>
-        </form>
+<div class="rounded-lg bg-neutral-900 border-white/10 border border-solid">
+    <div class="border-white/10 border-t-0 border-r-0 border-b border-l-0 border-solid flex px-4 py-3 justify-between items-center">
+        <span class="font-semibold text-sm leading-5 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a1a1a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg>
+            Filters
+        </span>
+        <a href="/marketplace" class="text-[oklch(0.65_0.16_255)] text-xs leading-4 hover:underline">Clear all</a>
     </div>
-</section>
+    <div class="border-white/10 border-t-0 border-r-0 border-b border-l-0 border-solid p-4">
+        <h3 class="font-semibold uppercase text-[#a1a1a1] text-xs leading-4 tracking-wide mb-3">Category</h3>
+        <div class="flex flex-col gap-2.5">
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="category" value="AI" <%= category === 'AI' ? 'checked' : '' %> class="accent-[oklch(0.55_0.15_255)] size-3.5"> AI
+            </label>
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="category" value="Web Development" <%= category === 'Web Development' ? 'checked' : '' %> class="accent-[oklch(0.55_0.15_255)] size-3.5"> Web
+            </label>
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="category" value="Mobile Apps" <%= category === 'Mobile Apps' ? 'checked' : '' %> class="accent-[oklch(0.55_0.15_255)] size-3.5"> Mobile
+            </label>
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="category" value="Backend" <%= category === 'Backend' ? 'checked' : '' %> class="accent-[oklch(0.55_0.15_255)] size-3.5"> Backend
+            </label>
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="category" value="SaaS" <%= category === 'SaaS' ? 'checked' : '' %> class="accent-[oklch(0.55_0.15_255)] size-3.5"> SaaS
+            </label>
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="category" value="Developer Tools" <%= category === 'Developer Tools' ? 'checked' : '' %> class="accent-[oklch(0.55_0.15_255)] size-3.5"> Developer Tools
+            </label>
+        </div>
+    </div>
+    <div class="border-white/10 border-t-0 border-r-0 border-b border-l-0 border-solid p-4">
+        <h3 class="font-semibold uppercase text-[#a1a1a1] text-xs leading-4 tracking-wide mb-3">Technology</h3>
+        <div class="flex flex-col gap-2.5">
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="tech" value="React" <%= tech === 'React' ? 'checked' : '' %> class="accent-[oklch(0.55_0.15_255)] size-3.5"> React
+            </label>
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="tech" value="Node.js" <%= tech === 'Node.js' ? 'checked' : '' %> class="accent-[oklch(0.55_0.15_255)] size-3.5"> Node.js
+            </label>
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="tech" value="Python" <%= tech === 'Python' ? 'checked' : '' %> class="accent-[oklch(0.55_0.15_255)] size-3.5"> Python
+            </label>
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="tech" value="Flutter" <%= tech === 'Flutter' ? 'checked' : '' %> class="accent-[oklch(0.55_0.15_255)] size-3.5"> Flutter
+            </label>
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="tech" value="Firebase" <%= tech === 'Firebase' ? 'checked' : '' %> class="accent-[oklch(0.55_0.15_255)] size-3.5"> Firebase
+            </label>
+        </div>
+    </div>
+    <div class="border-white/10 border-t-0 border-r-0 border-b border-l-0 border-solid p-4">
+        <h3 class="font-semibold uppercase text-[#a1a1a1] text-xs leading-4 tracking-wide mb-3">Price</h3>
+        <div class="flex flex-col gap-2.5">
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="radio" name="price" value="free" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Free
+            </label>
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="radio" name="price" value="under500" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Under ₹500
+            </label>
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="radio" name="price" value="500to1000" class="accent-[oklch(0.55_0.15_255)] size-3.5"> ₹500–₹1,000
+            </label>
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="radio" name="price" value="1000to2500" class="accent-[oklch(0.55_0.15_255)] size-3.5"> ₹1,000–₹2,500
+            </label>
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="radio" name="price" value="2500plus" class="accent-[oklch(0.55_0.15_255)] size-3.5"> ₹2,500+
+            </label>
+        </div>
+    </div>
+    <div class="p-4">
+        <h3 class="font-semibold uppercase text-[#a1a1a1] text-xs leading-4 tracking-wide mb-3">License</h3>
+        <div class="flex flex-col gap-2.5">
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="license" value="Personal" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Personal
+            </label>
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="license" value="Commercial" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Commercial
+            </label>
+            <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="license" value="Extended" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Extended
+            </label>
+        </div>
+    </div>
+</div>

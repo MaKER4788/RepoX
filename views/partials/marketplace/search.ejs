@@ -1,22 +1,10 @@
-<section class="border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-6 py-12">
-        <div class="text-center mb-8">
-            <h1 class="text-3xl font-bold tracking-tight">Explore Projects</h1>
-            <p class="text-[#a1a1a1] text-sm mt-2">Browse high-quality source code, templates, AI projects and developer tools.</p>
-        </div>
-        <form action="/marketplace" method="GET">
-            <div class="max-w-2xl mx-auto relative">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a1a1a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-4 top-1/2 -translate-y-1/2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                <input type="text" name="search" value="<%= search || '' %>" placeholder="Search projects, technologies, tags..." class="w-full rounded-xl bg-neutral-800 text-sm border-white/10 border border-solid pl-12 pr-24 h-12 text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] transition">
-                <button class="bg-[oklch(0.55_0.19_255)] font-medium rounded-lg text-white text-sm absolute right-2 px-4 h-9 top-1/2 -translate-y-1/2 hover:opacity-90 transition">Search</button>
-            </div>
-            <div class="mt-4 flex flex-wrap justify-center gap-2">
-                <a href="/marketplace?category=Web+Development" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">Web Dev</a>
-                <a href="/marketplace?category=AI" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">AI</a>
-                <a href="/marketplace?category=Mobile+Apps" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">Mobile</a>
-                <a href="/marketplace?category=SaaS" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">SaaS</a>
-                <a href="/marketplace?category=Backend" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">Backend</a>
-            </div>
-        </form>
-    </div>
-</section>
+<form action="/marketplace" method="GET" class="relative mb-4">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a1a1a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="top-1/2 -translate-y-1/2 absolute left-4"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input type="text" name="search" value="<%= search %>" placeholder="Search projects, templates, tools..." class="rounded-lg bg-neutral-900 text-base leading-6 border-white/10 border-0 border-solid pl-12 w-full h-12 text-neutral-50 placeholder-[#a1a1a1] outline-none">
+    <% if(category){ %>
+    <input type="hidden" name="category" value="<%= category %>">
+    <% } %>
+    <% if(tech){ %>
+    <input type="hidden" name="tech" value="<%= tech %>">
+    <% } %>
+</form>
