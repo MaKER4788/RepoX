@@ -1,169 +1,56 @@
-<section class="mt-16">
-
-    <h2 class="text-3xl font-bold text-white mb-8">
-        ★ Reviews
-    </h2>
+<section class="mt-10">
+    <h2 class="text-lg font-semibold mb-4">Reviews</h2>
 
     <% if(user){ %>
-
-    <form
-        action="/reviews/<%= project._id %>"
-        method="POST"
-        class="space-y-6 mb-12">
-
+    <form action="/reviews/<%= project._id %>" method="POST" class="space-y-4 mb-8">
         <div>
-
-            <label class="text-slate-300 block mb-2">
-                Rating
-            </label>
-
-            <select
-                name="rating"
-                required
-                class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700">
-
+            <label class="text-[#a1a1a1] text-sm block mb-1">Rating</label>
+            <select name="rating" required class="w-full px-3 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 outline-none focus:border-[oklch(0.55_0.19_255)]">
                 <option value="5">★★★★★ (5)</option>
                 <option value="4">★★★★ (4)</option>
                 <option value="3">★★★ (3)</option>
                 <option value="2">★★ (2)</option>
                 <option value="1">★ (1)</option>
-
             </select>
-
         </div>
-
         <div>
-
-            <label class="text-slate-300 block mb-2">
-                Comment
-            </label>
-
-            <textarea
-                name="comment"
-                rows="5"
-                required
-                placeholder="Write your review..."
-                class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700"></textarea>
-
+            <label class="text-[#a1a1a1] text-sm block mb-1">Comment</label>
+            <textarea name="comment" rows="3" required placeholder="Write your review..." class="w-full px-3 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)]"></textarea>
         </div>
-
-        <button
-            class="px-8 py-3 rounded-xl bg-blue-600 hover:bg-blue-700">
-
-            Submit Review
-
-        </button>
-
+        <button class="bg-[oklch(0.55_0.19_255)] font-medium rounded-lg text-white text-sm px-5 py-2.5 hover:opacity-90 transition">Submit Review</button>
     </form>
-    <% if(project.reviews.length){ %>
-        <div class="mb-8">
-
-    <% 
-        let average = 0;
-
-        if(project.reviews.length){
-            average = project.reviews.reduce((sum, review) =>
-                sum + review.rating, 0
-            ) / project.reviews.length;
-        }
-    %>
-
-    <h2 class="text-3xl font-bold text-white">
-
-        ★ Reviews
-
-    </h2>
-
-    <p class="text-slate-400 mt-2">
-
-        <span class="text-yellow-400 font-semibold">
-            <%= average.toFixed(1) %> / 5
-        </span>
-
-        •
-
-        <%= project.reviews.length %> Reviews
-
-    </p>
-
-</div>
-
-<div class="space-y-6">
-
-    <% project.reviews.forEach(review => { %>
-
-    <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6">
-
-        <div class="flex justify-between items-center">
-
-            <div>
-
-                <h3 class="text-white font-semibold">
-
-                    <%= review.user.fullname %>
-
-                </h3>
-
-                <p class="text-slate-500 text-sm">
-
-                    <%= new Date(review.createdAt).toLocaleDateString() %>
-
-                </p>
-
-            </div>
-
-            <div class="text-yellow-400 text-xl">
-
-                <% for(let i=1;i<=5;i++){ %>
-
-                    <% if(i<=review.rating){ %>
-
-                        ★
-
-                    <% }else{ %>
-
-                        ☆
-
-                    <% } %>
-
-                <% } %>
-
-            </div>
-
-        </div>
-
-        <p class="text-slate-300 mt-5 leading-7">
-
-            <%= review.comment %>
-
-        </p>
-
-    </div>
-
-    <% }) %>
-
-</div>
-
-<% } %>
-
     <% } %>
 
-<% if(!project.reviews.length){ %>
-
-<div class="rounded-2xl bg-slate-900 border border-slate-800 p-10 text-center">
-
-    <h3 class="text-2xl font-semibold text-white">
-
-        No Reviews Yet
-
-    </h3>
-
-    <p class="text-slate-400 mt-3">
-
-        Be the first person to review this project.
-
-    </p>
-
-</div>
-
-<% } %>
+    <% if(project.reviews && project.reviews.length){ %>
+    <%
+        let average = project.reviews.reduce((sum, review) => sum + review.rating, 0) / project.reviews.length;
+    %>
+    <div class="mb-4">
+        <p class="text-[#a1a1a1] text-sm">
+            <span class="text-neutral-50 font-semibold"><%= average.toFixed(1) %> / 5</span>
+            · <%= project.reviews.length %> reviews
+        </p>
+    </div>
+    <div class="space-y-3">
+        <% project.reviews.forEach(function(review){ %>
+        <div class="rounded-lg bg-neutral-900 border-white/10 border border-solid p-4">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h3 class="text-sm font-semibold"><%= review.user.fullname %></h3>
+                    <p class="text-[#a1a1a1] text-xs"><%= new Date(review.createdAt).toLocaleDateString() %></p>
+                </div>
+                <div class="text-yellow-400 text-sm">
+                    <% for(let i=1; i<=5; i++){ %><%= i <= review.rating ? '★' : '☆' %><% } %>
+                </div>
+            </div>
+            <p class="text-[#a1a1a1] text-sm mt-3 leading-6"><%= review.comment %></p>
+        </div>
+        <% }) %>
+    </div>
+    <% } else { %>
+    <div class="rounded-lg bg-neutral-900 border-white/10 border border-solid p-8 text-center">
+        <h3 class="text-base font-semibold">No Reviews Yet</h3>
+        <p class="text-[#a1a1a1] text-sm mt-1">Be the first person to review this project.</p>
+    </div>
+    <% } %>
+</section>

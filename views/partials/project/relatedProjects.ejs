@@ -1,19 +1,10 @@
-<section class="mt-16">
-
-    <h2 class="text-3xl font-bold text-white mb-8">
-
-        Related Projects
-
-    </h2>
-
-    <div class="grid md:grid-cols-3 gap-6">
-
-        <% relatedProjects.forEach(project=>{ %>
-
+<% if(relatedProjects && relatedProjects.length){ %>
+<section class="mt-10">
+    <h2 class="text-lg font-semibold mb-4">Related Projects</h2>
+    <div class="grid md:grid-cols-3 gap-4">
+        <% relatedProjects.forEach(function(project){ %>
             <%- include("../marketplace/projectCard",{project}) %>
-
         <% }) %>
-
     </div>
-
 </section>
+<% } %>

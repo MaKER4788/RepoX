@@ -4,6 +4,7 @@ exports.getMarketplace = async (req, res) => {
 
     const search = req.query.search || "";
     const category = req.query.category || "";
+    const tech = req.query.tech || "";
     const min = req.query.min || "";
     const max = req.query.max || "";
     const sort = req.query.sort || "newest";
@@ -43,6 +44,12 @@ exports.getMarketplace = async (req, res) => {
         filter.category = category;
 
     }
+
+    if (tech) {
+
+        filter.techStack = { $regex: tech, $options: "i" };
+
+    }
     let sortOption = {
     createdAt: -1
 };
@@ -71,6 +78,7 @@ const totalPages = Math.ceil(totalProjects/limit);
         user: req.user,
         search,
         category,
+        tech,
         max,
         min,
         sort,

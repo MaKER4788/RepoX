@@ -1,151 +1,54 @@
-<section class="py-24 bg-slate-950">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <!-- Heading -->
-
-        <div class="text-center">
-
-            <p class="text-blue-400 uppercase tracking-[0.25em] font-semibold">
-                Browse
-            </p>
-
-            <h2 class="text-4xl md:text-5xl font-bold mt-4">
-                Explore Categories
-            </h2>
-
-            <p class="text-slate-400 mt-5 max-w-2xl mx-auto">
-                Find software projects from different domains and technologies.
-            </p>
-
+<section class="flex flex-col gap-6">
+    <div class="flex justify-between items-end">
+        <div class="flex flex-col gap-1">
+            <h2 class="font-bold text-2xl leading-8 tracking-tight">Browse by Category</h2>
+            <p class="text-[#a1a1a1] text-sm leading-5">Explore projects grouped by what you're building.</p>
         </div>
-
-        <!-- Categories Grid -->
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
-
-            <!-- AI -->
-
-            <div class="group bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 hover:border-blue-500 hover:-translate-y-2 transition duration-300 cursor-pointer">
-
-                
-                <h3 class="text-2xl font-bold mt-6">
-                    AI & ML
-                </h3>
-
-                <p class="text-slate-400 mt-3">
-                    LLMs, Computer Vision, NLP, Automation
-                </p>
-
-            </div>
-
-            <!-- Web -->
-
-            <div class="group bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 hover:border-cyan-500 hover:-translate-y-2 transition duration-300 cursor-pointer">
-
-                
-                <h3 class="text-2xl font-bold mt-6">
-                    Web Development
-                </h3>
-
-                <p class="text-slate-400 mt-3">
-                    MERN, Next.js, Express, Full Stack Apps
-                </p>
-
-            </div>
-
-            <!-- Mobile -->
-
-            <div class="group bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 hover:border-green-500 hover:-translate-y-2 transition duration-300 cursor-pointer">
-
-                
-                <h3 class="text-2xl font-bold mt-6">
-                    Mobile Apps
-                </h3>
-
-                <p class="text-slate-400 mt-3">
-                    Flutter, React Native, Android, iOS
-                </p>
-
-            </div>
-
-            <!-- Desktop -->
-
-            <div class="group bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 hover:border-purple-500 hover:-translate-y-2 transition duration-300 cursor-pointer">
-
-                
-                <h3 class="text-2xl font-bold mt-6">
-                    Desktop Apps
-                </h3>
-
-                <p class="text-slate-400 mt-3">
-                    Electron, C++, Java, Python Desktop
-                </p>
-
-            </div>
-
-            <!-- SaaS -->
-
-            <div class="group bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 hover:border-pink-500 hover:-translate-y-2 transition duration-300 cursor-pointer">
-
-                
-                <h3 class="text-2xl font-bold mt-6">
-                    SaaS
-                </h3>
-
-                <p class="text-slate-400 mt-3">
-                    Subscription Platforms & Dashboards
-                </p>
-
-            </div>
-
-            <!-- Cyber -->
-
-            <div class="group bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 hover:border-red-500 hover:-translate-y-2 transition duration-300 cursor-pointer">
-
-                
-                <h3 class="text-2xl font-bold mt-6">
-                    Cyber Security
-                </h3>
-
-                <p class="text-slate-400 mt-3">
-                    Pentesting, Network Security, Encryption
-                </p>
-
-            </div>
-
-            <!-- Data -->
-
-            <div class="group bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 hover:border-yellow-500 hover:-translate-y-2 transition duration-300 cursor-pointer">
-
-                
-                <h3 class="text-2xl font-bold mt-6">
-                    Data Science
-                </h3>
-
-                <p class="text-slate-400 mt-3">
-                    Analytics, Dashboards, Visualization
-                </p>
-
-            </div>
-
-            <!-- Game -->
-
-            <div class="group bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 hover:border-orange-500 hover:-translate-y-2 transition duration-300 cursor-pointer">
-
-                
-                <h3 class="text-2xl font-bold mt-6">
-                    Game Development
-                </h3>
-
-                <p class="text-slate-400 mt-3">
-                    Unity, Unreal, Godot, Multiplayer Games
-                </p>
-
-            </div>
-
-        </div>
-
+        <a href="/marketplace" class="text-[#a1a1a1] text-sm leading-5 flex items-center gap-1 hover:text-neutral-50 transition">
+            View all
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
     </div>
-
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+        <a href="/marketplace?category=AI" class="transition-colors text-left rounded-lg border-white/10 border border-solid flex p-4 flex-col items-start gap-3 hover:border-white/20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-200"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+            <span class="font-medium text-sm leading-5">AI & Machine Learning</span>
+        </a>
+        <a href="/marketplace?category=Web Development" class="transition-colors text-left rounded-lg border-white/10 border border-solid flex p-4 flex-col items-start gap-3 hover:border-white/20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-200"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="font-medium text-sm leading-5">Web Development</span>
+        </a>
+        <a href="/marketplace?category=Mobile Apps" class="transition-colors text-left rounded-lg border-white/10 border border-solid flex p-4 flex-col items-start gap-3 hover:border-white/20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-200"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+            <span class="font-medium text-sm leading-5">Mobile Apps</span>
+        </a>
+        <a href="/marketplace?category=Backend" class="transition-colors text-left rounded-lg border-white/10 border border-solid flex p-4 flex-col items-start gap-3 hover:border-white/20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-200"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+            <span class="font-medium text-sm leading-5">Backend</span>
+        </a>
+        <a href="/marketplace?category=SaaS" class="transition-colors text-left rounded-lg border-white/10 border border-solid flex p-4 flex-col items-start gap-3 hover:border-white/20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-200"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>
+            <span class="font-medium text-sm leading-5">SaaS</span>
+        </a>
+        <a href="/marketplace?category=E-commerce" class="transition-colors text-left rounded-lg border-white/10 border border-solid flex p-4 flex-col items-start gap-3 hover:border-white/20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-200"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span class="font-medium text-sm leading-5">E-commerce</span>
+        </a>
+        <a href="/marketplace?category=Developer Tools" class="transition-colors text-left rounded-lg border-white/10 border border-solid flex p-4 flex-col items-start gap-3 hover:border-white/20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-200"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            <span class="font-medium text-sm leading-5">Developer Tools</span>
+        </a>
+        <a href="/marketplace?category=Data & Analytics" class="transition-colors text-left rounded-lg border-white/10 border border-solid flex p-4 flex-col items-start gap-3 hover:border-white/20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-200"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+            <span class="font-medium text-sm leading-5">Data & Analytics</span>
+        </a>
+        <a href="/marketplace?category=Automation" class="transition-colors text-left rounded-lg border-white/10 border border-solid flex p-4 flex-col items-start gap-3 hover:border-white/20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-200"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+            <span class="font-medium text-sm leading-5">Automation</span>
+        </a>
+        <a href="/marketplace?category=Games" class="transition-colors text-left rounded-lg border-white/10 border border-solid flex p-4 flex-col items-start gap-3 hover:border-white/20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-200"><line x1="6" x2="10" y1="12" y2="12"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="15" x2="15.01" y1="13" y2="13"/><line x1="18" x2="18.01" y1="11" y2="11"/><rect width="20" height="12" x="2" y="6" rx="2"/></svg>
+            <span class="font-medium text-sm leading-5">Games</span>
+        </a>
+    </div>
 </section>

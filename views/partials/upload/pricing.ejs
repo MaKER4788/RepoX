@@ -1,210 +1,49 @@
-<!-- ================= Pricing & License ================= -->
-
-<section class="border-t border-slate-800 pt-10">
-
-    <div class="mb-8">
-
-        <h2 class="text-3xl font-bold text-white">
-
-             Pricing & License
-
-        </h2>
-
-        <p class="text-slate-400 mt-2">
-
-            Set your project's pricing and licensing details.
-
-        </p>
-
+<section class="border-t border-white/10 pt-6">
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold">Pricing & License</h2>
+        <p class="text-[#a1a1a1] text-sm mt-1">Set your project's pricing and licensing details.</p>
     </div>
-
-    <div class="grid md:grid-cols-2 gap-6">
-
-        <!-- Price -->
-
+    <div class="grid md:grid-cols-2 gap-4">
         <div>
-
-            <label class="block text-slate-300 mb-3">
-
-                Selling Price (₹)
-
-            </label>
-
-            <input
-    type="number"
-    name="price"
-    required
-    min="0"
-    value="<%= project?.price || '' %>"
-    placeholder="999"
-    class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-blue-500 outline-none">
-
+            <label class="block text-[#a1a1a1] text-sm mb-1">Selling Price (₹)</label>
+            <input type="number" name="price" required min="0" value="<%= project?.price || '' %>" placeholder="999" class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)]">
         </div>
-
-        <!-- Discount -->
-
         <div>
-
-            <label class="block text-slate-300 mb-3">
-
-                Discount (%)
-
-            </label>
-
-           <input
-    type="number"
-    name="discount"
-    min="0"
-    max="100"
-    value="<%= project?.discount || 0 %>"
-    placeholder="10"
-    class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-cyan-500 outline-none">
-
+            <label class="block text-[#a1a1a1] text-sm mb-1">Discount (%)</label>
+            <input type="number" name="discount" min="0" max="100" value="<%= project?.discount || 0 %>" placeholder="10" class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)]">
         </div>
-
-        <!-- License -->
-
         <div>
-
-            <label class="block text-slate-300 mb-3">
-
-                License
-
-            </label>
-
-           <select
-    name="license"
-    class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-green-500 outline-none">
-
-    <option value="Single Use" <%= project?.license==="Single Use" ? "selected" : "" %>>
-        Single Use
-    </option>
-
-    <option value="Commercial" <%= project?.license==="Commercial" ? "selected" : "" %>>
-        Commercial
-    </option>
-
-    <option value="Extended Commercial" <%= project?.license==="Extended Commercial" ? "selected" : "" %>>
-        Extended Commercial
-    </option>
-
-    <option value="Enterprise" <%= project?.license==="Enterprise" ? "selected" : "" %>>
-        Enterprise
-    </option>
-
-</select>
-
+            <label class="block text-[#a1a1a1] text-sm mb-1">License</label>
+            <select name="license" class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 outline-none focus:border-[oklch(0.55_0.19_255)]">
+                <option value="Single Use" <%= project?.license==="Single Use" ? "selected" : "" %>>Single Use</option>
+                <option value="Commercial" <%= project?.license==="Commercial" ? "selected" : "" %>>Commercial</option>
+                <option value="Extended Commercial" <%= project?.license==="Extended Commercial" ? "selected" : "" %>>Extended Commercial</option>
+                <option value="Enterprise" <%= project?.license==="Enterprise" ? "selected" : "" %>>Enterprise</option>
+            </select>
         </div>
-
-        <!-- Support -->
-
         <div>
-
-            <label class="block text-slate-300 mb-3">
-
-                Support Duration
-
-            </label>
-
-            <select
-    name="support"
-    class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-purple-500 outline-none">
-
-    <option value="No Support" <%= project?.support==="No Support" ? "selected" : "" %>>
-        No Support
-    </option>
-
-    <option value="3 Months" <%= project?.support==="3 Months" ? "selected" : "" %>>
-        3 Months
-    </option>
-
-    <option value="6 Months" <%= project?.support==="6 Months" ? "selected" : "" %>>
-        6 Months
-    </option>
-
-    <option value="12 Months" <%= project?.support==="12 Months" ? "selected" : "" %>>
-        12 Months
-    </option>
-
-</select>
-
+            <label class="block text-[#a1a1a1] text-sm mb-1">Support Duration</label>
+            <select name="support" class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 outline-none focus:border-[oklch(0.55_0.19_255)]">
+                <option value="No Support" <%= project?.support==="No Support" ? "selected" : "" %>>No Support</option>
+                <option value="3 Months" <%= project?.support==="3 Months" ? "selected" : "" %>>3 Months</option>
+                <option value="6 Months" <%= project?.support==="6 Months" ? "selected" : "" %>>6 Months</option>
+                <option value="12 Months" <%= project?.support==="12 Months" ? "selected" : "" %>>12 Months</option>
+            </select>
         </div>
-
-        <!-- Refund -->
-
         <div>
-
-            <label class="block text-slate-300 mb-3">
-
-                Refund Policy
-
-            </label>
-
-            <select
-    name="refundPolicy"
-    class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-pink-500 outline-none">
-
-    <option value="No Refund" <%= project?.refundPolicy==="No Refund" ? "selected" : "" %>>
-        No Refund
-    </option>
-
-    <option value="7 Days" <%= project?.refundPolicy==="7 Days" ? "selected" : "" %>>
-        7 Days
-    </option>
-
-    <option value="14 Days" <%= project?.refundPolicy==="14 Days" ? "selected" : "" %>>
-        14 Days
-    </option>
-
-</select>
-
+            <label class="block text-[#a1a1a1] text-sm mb-1">Refund Policy</label>
+            <select name="refundPolicy" class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 outline-none focus:border-[oklch(0.55_0.19_255)]">
+                <option value="No Refund" <%= project?.refundPolicy==="No Refund" ? "selected" : "" %>>No Refund</option>
+                <option value="7 Days" <%= project?.refundPolicy==="7 Days" ? "selected" : "" %>>7 Days</option>
+                <option value="14 Days" <%= project?.refundPolicy==="14 Days" ? "selected" : "" %>>14 Days</option>
+            </select>
         </div>
-
-        <!-- Availability -->
-
         <div>
-
-            <label class="block text-slate-300 mb-3">
-
-                Visibility
-
-            </label>
-<select
-    name="published"
-    class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-yellow-500 outline-none">
-
-    <option value="true" <%= project?.published ? "selected" : "" %>>
-        Public
-    </option>
-
-    <option value="false" <%= !project?.published ? "selected" : "" %>>
-        Private Draft
-    </option>
-
-</select>
-
+            <label class="block text-[#a1a1a1] text-sm mb-1">Visibility</label>
+            <select name="published" class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 outline-none focus:border-[oklch(0.55_0.19_255)]">
+                <option value="true" <%= project?.published ? "selected" : "" %>>Public</option>
+                <option value="false" <%= !project?.published ? "selected" : "" %>>Private Draft</option>
+            </select>
         </div>
-
     </div>
-
-    <!-- Info Card -->
-
-    <div class="mt-8 rounded-2xl border border-blue-500/20 bg-blue-500/10 p-6">
-
-        <h3 class="text-xl font-semibold text-blue-400">
-
-             Pricing Tip
-
-        </h3>
-
-        <p class="text-slate-300 mt-3 leading-7">
-
-            Projects with complete documentation, clean code, screenshots,
-            installation guides, and demo videos generally perform better and
-            build more trust with buyers.
-
-        </p>
-
-    </div>
-
 </section>

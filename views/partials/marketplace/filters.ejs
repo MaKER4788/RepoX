@@ -1,130 +1,46 @@
-<section class="border-b border-slate-800 bg-slate-900/50 backdrop-blur-xl">
-
-    <div class="max-w-7xl mx-auto px-6 py-8">
-
+<section class="border-b border-white/10 bg-neutral-900/50">
+    <div class="max-w-7xl mx-auto px-6 py-4">
         <form action="/marketplace" method="GET">
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-4">
-
-                <!-- Category -->
+            <div class="flex flex-wrap items-end gap-3">
                 <div>
-
-                    <label class="block text-slate-400 text-sm mb-2">
-                        Category
-                    </label>
-
-                    <select
-                        name="category"
-                        class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 outline-none">
-
-                        <option value="">All Categories</option>
-                        <option>Web Development</option>
-                        <option>AI</option>
-                        <option>Mobile Apps</option>
-                        <option>Automation</option>
-                        <option>Cyber Security</option>
-                        <option>UI/UX</option>
-
+                    <label class="block text-[#a1a1a1] text-xs mb-1">Category</label>
+                    <select name="category" class="bg-neutral-800 border-white/10 border border-solid rounded-lg px-3 py-2 text-sm text-neutral-50 outline-none focus:border-[oklch(0.55_0.19_255)]">
+                        <option value="">All</option>
+                        <option <%= category==='AI' ? 'selected' : '' %>>AI</option>
+                        <option <%= category==='Web Development' ? 'selected' : '' %>>Web Development</option>
+                        <option <%= category==='Mobile Apps' ? 'selected' : '' %>>Mobile Apps</option>
+                        <option <%= category==='Backend' ? 'selected' : '' %>>Backend</option>
+                        <option <%= category==='SaaS' ? 'selected' : '' %>>SaaS</option>
+                        <option <%= category==='E-commerce' ? 'selected' : '' %>>E-commerce</option>
+                        <option <%= category==='Developer Tools' ? 'selected' : '' %>>Developer Tools</option>
+                        <option <%= category==='Data & Analytics' ? 'selected' : '' %>>Data & Analytics</option>
+                        <option <%= category==='Automation' ? 'selected' : '' %>>Automation</option>
+                        <option <%= category==='Games' ? 'selected' : '' %>>Games</option>
                     </select>
-
                 </div>
-
-                <!-- Min Price -->
-
                 <div>
-
-                    <label class="block text-slate-400 text-sm mb-2">
-
-                        Min Price
-
-                    </label>
-
-                    <input
-                        type="number"
-                        name="min"
-                        value="<%= min || '' %>"
-                        placeholder="₹"
-                        class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-blue-500 outline-none">
-
+                    <label class="block text-[#a1a1a1] text-xs mb-1">Min Price</label>
+                    <input type="number" name="min" value="<%= min || '' %>" placeholder="₹" class="bg-neutral-800 border-white/10 border border-solid rounded-lg px-3 py-2 text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] w-24">
                 </div>
-
-                <!-- Max Price -->
-
                 <div>
-
-                    <label class="block text-slate-400 text-sm mb-2">
-
-                        Max Price
-
-                    </label>
-
-                    <input
-                        type="number"
-                        name="max"
-                        value="<%= max || '' %>"
-                        placeholder="₹"
-                        class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-blue-500 outline-none">
-
+                    <label class="block text-[#a1a1a1] text-xs mb-1">Max Price</label>
+                    <input type="number" name="max" value="<%= max || '' %>" placeholder="₹" class="bg-neutral-800 border-white/10 border border-solid rounded-lg px-3 py-2 text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] w-24">
                 </div>
-
-                <!-- Sort -->
-
                 <div>
-
-                    <label class="block text-slate-400 text-sm mb-2">
-
-                        Sort By
-
-                    </label>
-
-                    <select
-                        name="sort"
-                        class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-blue-500 outline-none">
-
-                        <option value="latest">Latest</option>
-                        <option value="oldest">Oldest</option>
-                        <option value="priceLow">Price: Low → High</option>
-                        <option value="priceHigh">Price: High → Low</option>
-
+                    <label class="block text-[#a1a1a1] text-xs mb-1">Sort</label>
+                    <select name="sort" class="bg-neutral-800 border-white/10 border border-solid rounded-lg px-3 py-2 text-sm text-neutral-50 outline-none focus:border-[oklch(0.55_0.19_255)]">
+                        <option value="newest" <%= sort==='newest' ? 'selected' : '' %>>Newest</option>
+                        <option value="oldest" <%= sort==='oldest' ? 'selected' : '' %>>Oldest</option>
+                        <option value="low" <%= sort==='low' ? 'selected' : '' %>>Price: Low</option>
+                        <option value="high" <%= sort==='high' ? 'selected' : '' %>>Price: High</option>
                     </select>
-
                 </div>
-
-                <!-- Tech -->
-
                 <div>
-
-                    <label class="block text-slate-400 text-sm mb-2">
-
-                        Technology
-
-                    </label>
-
-                    <input
-                        type="text"
-                        name="tech"
-                        placeholder="React, Node..."
-                        class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-blue-500 outline-none">
-
+                    <label class="block text-[#a1a1a1] text-xs mb-1">Tech</label>
+                    <input type="text" name="tech" placeholder="React, Node..." class="bg-neutral-800 border-white/10 border border-solid rounded-lg px-3 py-2 text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] w-32">
                 </div>
-
-                <!-- Button -->
-
-                <div class="flex items-end">
-
-                    <button
-                        class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 transition font-semibold">
-
-                        Apply Filters
-
-                    </button>
-
-                </div>
-
+                <button class="bg-[oklch(0.55_0.19_255)] font-medium rounded-lg text-white text-sm px-4 py-2 h-[38px] hover:opacity-90 transition">Apply</button>
             </div>
-
         </form>
-
     </div>
-
 </section>

@@ -1,166 +1,27 @@
-<section class="relative overflow-hidden bg-slate-950">
-
-    <!-- Background Glow -->
-    <div class="absolute top-0 left-0 w-96 h-96 bg-blue-600/20 blur-[140px] rounded-full"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500/20 blur-[140px] rounded-full"></div>
-
-    <div class="relative max-w-7xl mx-auto px-6 py-20 md:py-28">
-
-        <div class="grid lg:grid-cols-2 gap-20 items-center">
-
-            <!-- LEFT -->
-
-            <div>
-
-                <span
-                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm">
-
-                     India's Software Marketplace
-
-                </span>
-
-                <h1
-                    class="mt-8 text-5xl md:text-7xl font-extrabold leading-tight tracking-tight">
-
-                    Buy.
-
-                    <span
-                        class="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
-
-                        Sell.
-
-                    </span>
-
-                    Build.
-
-                </h1>
-
-                <p
-                    class="mt-8 text-slate-400 text-lg leading-8 max-w-xl">
-
-                    Discover production-ready software projects, source code,
-                    AI applications, SaaS templates and developer assets.
-
-                    Sell your own projects and start earning from your code.
-
-                </p>
-
-                <!-- Buttons -->
-
-                <div class="mt-10 flex flex-wrap gap-5">
-
-                    <a href="/marketplace"
-                        class="px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:scale-105 transition duration-300 shadow-lg shadow-blue-600/30">
-
-                        Explore Marketplace
-
-                    </a>
-
-                    <a href="/upload"
-                        class="px-8 py-4 rounded-xl border border-slate-700 hover:border-blue-500 hover:bg-slate-900 transition">
-
-                        Sell Your Project
-
-                    </a>
-
-                </div>
-
-
-
-            </div>
-
-            <!-- RIGHT -->
-
-            <div class="relative">
-
-                <!-- Main Card -->
-
-                <div
-                    class="rounded-3xl border border-slate-800 bg-slate-900/60 backdrop-blur-xl p-8 md:p-10 shadow-2xl">
-
-                    <div class="flex justify-between items-center">
-
-                        <h2 class="text-4xl font-bold">
-
-                            Featured Project
-
-                        </h2>
-
-                        <span
-                            class="px-4 py-2 rounded-full bg-green-500/20 text-green-400 text-sm">
-
-                            Verified
-
-                        </span>
-
-                    </div>
-
-                    
-                    <h3
-                        class="mt-8 text-3xl font-bold">
-
-                        AI SaaS Starter Kit
-
-                    </h3>
-
-                    <p
-                        class="mt-3 text-slate-400">
-
-                        Next.js • Node.js • PostgreSQL • Stripe • OpenAI
-
-                    </p>
-
-                    <div
-                        class="mt-10 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-6">
-
-                        <div>
-
-                            <p class="text-slate-500">
-
-                                Starting From
-
-                            </p>
-
-                            <h1
-                                class="text-5xl font-extrabold text-blue-400">
-
-                                ₹1,999
-
-                            </h1>
-
-                        </div>
-
-                        <a href="#"
-                            class="px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 transition text-center">
-
-                            View Project
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <!-- Floating Cards -->
-
-                <div
-                    class="hidden lg:flex absolute -top-10 -left-10 rounded-2xl bg-slate-900 border border-slate-700 px-6 py-4 shadow-xl">
-
-                     Premium Code
-
-                </div>
-
-                <div
-                    class="hidden lg:flex absolute -bottom-8 right-0 rounded-2xl bg-slate-900 border border-slate-700 px-6 py-4 shadow-xl">
-
-                     Secure Purchase
-
-                </div>
-
-            </div>
-
+<section class="border-b border-white/10 p-8">
+    <div class="max-w-3xl text-center flex mx-auto flex-col items-center gap-4">
+        <h1 class="font-bold text-3xl leading-9 tracking-tight">
+            Build faster with ready-made software.
+        </h1>
+        <p class="text-[#a1a1a1] text-sm leading-5">
+            Discover production-ready projects, templates, AI applications and developer tools.
+        </p>
+        <form action="/marketplace" method="GET" class="relative flex mt-2 items-center w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a1a1a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-4"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" name="search" placeholder="Search projects, templates, tools..." class="rounded-xl bg-neutral-800 text-sm leading-5 border-white/10 border border-solid pl-12 pr-28 w-full h-12 text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] transition">
+            <button class="bg-[oklch(0.55_0.19_255)] font-medium rounded-lg text-white text-sm leading-5 absolute right-2 px-4 h-9 hover:opacity-90 transition">
+                Search
+            </button>
+        </form>
+        <div class="flex flex-wrap justify-center items-center gap-2">
+            <span class="text-[#a1a1a1] text-xs leading-4">Popular:</span>
+            <a href="/marketplace?tech=React" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs leading-4 border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">React</a>
+            <a href="/marketplace?tech=Next.js" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs leading-4 border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">Next.js</a>
+            <a href="/marketplace?tech=Node.js" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs leading-4 border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">Node.js</a>
+            <a href="/marketplace?tech=Python" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs leading-4 border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">Python</a>
+            <a href="/marketplace?tech=Flutter" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs leading-4 border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">Flutter</a>
+            <a href="/marketplace?category=AI" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs leading-4 border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">AI</a>
+            <a href="/marketplace?tech=Firebase" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs leading-4 border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">Firebase</a>
         </div>
-
     </div>
-
 </section>

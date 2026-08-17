@@ -1,144 +1,40 @@
-<!-- ================= Basic Information ================= -->
-
 <section>
-
-    <div class="mb-8">
-
-        <h2 class="text-3xl font-bold text-white">
-
-             Basic Information
-
-        </h2>
-
-        <p class="text-slate-400 mt-2">
-
-            Tell buyers what your project is about.
-
-        </p>
-
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold">Basic Information</h2>
+        <p class="text-[#a1a1a1] text-sm mt-1">Tell buyers what your project is about.</p>
     </div>
-
-    <div class="grid md:grid-cols-2 gap-6">
-
-        <!-- Project Title -->
-
+    <div class="grid md:grid-cols-2 gap-4">
         <div class="md:col-span-2">
-
-            <label class="block text-slate-300 mb-2">
-
-                Project Title
-
-            </label>
-
-            <input
-                type="text"
-                name="title"
-                value="<%= project ? project.title : '' %>"
-                required
-                placeholder="e.g. AI Resume Builder"
-                class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-blue-500 outline-none transition">
-
+            <label class="block text-[#a1a1a1] text-sm mb-1">Project Title</label>
+            <input type="text" name="title" value="<%= project ? project.title : '' %>" required placeholder="e.g. AI Resume Builder" class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] transition">
         </div>
-
-        <!-- Short Description -->
-
         <div class="md:col-span-2">
-
-            <label class="block text-slate-300 mb-2">
-
-                Short Description
-
-            </label>
-
-            <textarea
-    name="shortDescription"
-    rows="4"
-    placeholder="Briefly describe your project..."
-    class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-blue-500 outline-none resize-none"><%= project ? project.shortDescription : '' %></textarea>
-
+            <label class="block text-[#a1a1a1] text-sm mb-1">Short Description</label>
+            <textarea name="shortDescription" rows="3" placeholder="Briefly describe your project..." class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] transition resize-none"><%= project ? project.shortDescription : '' %></textarea>
         </div>
-
-        <!-- Category -->
-
         <div>
-
-            <label class="block text-slate-300 mb-2">
-
-                Category
-
-            </label>
-
-            <select
-                name="category"
-                class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-blue-500 outline-none">
-
+            <label class="block text-[#a1a1a1] text-sm mb-1">Category</label>
+            <select name="category" class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 outline-none focus:border-[oklch(0.55_0.19_255)]">
                 <option value="AI / Machine Learning" <%= project && project.category === "AI / Machine Learning" ? "selected" : "" %>>AI / Machine Learning</option>
                 <option value="Web Development" <%= project && project.category === "Web Development" ? "selected" : "" %>>Web Development</option>
                 <option value="Mobile App" <%= project && project.category === "Mobile App" ? "selected" : "" %>>Mobile App</option>
                 <option value="SaaS" <%= project && project.category === "SaaS" ? "selected" : "" %>>SaaS</option>
                 <option value="E-Commerce" <%= project && project.category === "E-Commerce" ? "selected" : "" %>>E-Commerce</option>
-                <option value="Blockchain" <%= project && project.category === "Blockchain" ? "selected" : "" %>>Blockchain</option>
-                <option value="Cyber Security" <%= project && project.category === "Cyber Security" ? "selected" : "" %>>Cyber Security</option>
-                <option value="DevOps" <%= project && project.category === "DevOps" ? "selected" : "" %>>DevOps</option>
+                <option value="Developer Tools" <%= project && project.category === "Developer Tools" ? "selected" : "" %>>Developer Tools</option>
+                <option value="Data & Analytics" <%= project && project.category === "Data & Analytics" ? "selected" : "" %>>Data & Analytics</option>
                 <option value="Automation" <%= project && project.category === "Automation" ? "selected" : "" %>>Automation</option>
-                <option value="Game Development" <%= project && project.category === "Game Development" ? "selected" : "" %>>Game Development</option>
-
+                <option value="Games" <%= project && project.category === "Games" ? "selected" : "" %>>Games</option>
             </select>
-
         </div>
-
-       
-
-        <!-- Tech Stack -->
-
         <div class="md:col-span-2">
-
-            <label class="block text-slate-300 mb-2">
-
-                Tech Stack
-
-            </label>
-
-            <input
-    type="text"
-    name="techStack"
-    value="<%= project ? project.techStack.join(', ') : '' %>"
-    placeholder="React, Node.js, Express, MongoDB..."
-    class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-blue-500 outline-none">
-
-            <p class="text-sm text-slate-500 mt-2">
-
-                Separate technologies with commas.
-
-            </p>
-
+            <label class="block text-[#a1a1a1] text-sm mb-1">Tech Stack</label>
+            <input type="text" name="techStack" value="<%= project ? project.techStack.join(', ') : '' %>" placeholder="React, Node.js, Express, MongoDB..." class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)]">
+            <p class="text-xs text-neutral-500 mt-1">Separate technologies with commas.</p>
         </div>
-
-        <!-- Tags -->
-
         <div class="md:col-span-2">
-
-            <label class="block text-slate-300 mb-2">
-
-                Tags
-
-            </label>
-
-            <input
-    type="text"
-    name="tags"
-    value="<%= project ? project.tags.join(', ') : '' %>"
-    placeholder="AI, MERN, Authentication, Dashboard"
-    class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-cyan-500 outline-none">
-
-            <p class="text-sm text-slate-500 mt-2">
-
-                These tags help users find your project faster.
-
-            </p>
-
+            <label class="block text-[#a1a1a1] text-sm mb-1">Tags</label>
+            <input type="text" name="tags" value="<%= project ? project.tags.join(', ') : '' %>" placeholder="AI, MERN, Authentication, Dashboard" class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)]">
+            <p class="text-xs text-neutral-500 mt-1">These tags help users find your project faster.</p>
         </div>
-
     </div>
-
 </section>

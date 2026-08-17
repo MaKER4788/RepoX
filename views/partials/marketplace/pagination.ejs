@@ -1,21 +1,11 @@
-<div class="flex flex-wrap justify-center items-center gap-3 mt-10 pb-16">
-
-<% if(page>1){ %>
-
-<a href="?page=<%= page-1 %>" class="px-4 py-2 rounded-xl border border-slate-700 text-slate-300 hover:border-blue-500 hover:text-white transition">Previous</a>
-
+<div class="flex flex-wrap justify-center items-center gap-2 py-8">
+<% if(page > 1){ %>
+<a href="?page=<%= page-1 %>" class="px-3 py-1.5 rounded-lg border-white/10 border border-solid text-[#a1a1a1] text-sm hover:border-white/20 hover:text-neutral-50 transition">Prev</a>
 <% } %>
-
-<% for(let i=1;i<=totalPages;i++){ %>
-
-<a href="?page=<%= i %>" class="px-4 py-2 rounded-xl <%= i===page ? 'bg-blue-600 text-white' : 'border border-slate-700 text-slate-300 hover:border-blue-500 hover:text-white transition' %>"><%= i %></a>
-
+<% for(let i = 1; i <= totalPages; i++){ %>
+<a href="?page=<%= i %>" class="px-3 py-1.5 rounded-lg text-sm <%= i === page ? 'bg-[oklch(0.55_0.19_255)] text-white' : 'border-white/10 border border-solid text-[#a1a1a1] hover:border-white/20 hover:text-neutral-50 transition' %>"><%= i %></a>
 <% } %>
-
-<% if(page<totalPages){ %>
-
-<a href="?page=<%= page+1 %>" class="px-4 py-2 rounded-xl border border-slate-700 text-slate-300 hover:border-blue-500 hover:text-white transition">Next</a>
-
+<% if(page < totalPages){ %>
+<a href="?page=<%= page+1 %>" class="px-3 py-1.5 rounded-lg border-white/10 border border-solid text-[#a1a1a1] text-sm hover:border-white/20 hover:text-neutral-50 transition">Next</a>
 <% } %>
-
 </div>

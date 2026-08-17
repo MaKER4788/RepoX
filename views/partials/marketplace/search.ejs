@@ -1,108 +1,22 @@
-<section class="relative overflow-hidden border-b border-slate-800">
-
-    <!-- Background Glow -->
-    <div class="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-cyan-500/5 to-transparent"></div>
-
-    <div class="relative max-w-7xl mx-auto px-6 py-20">
-
-        <!-- Heading -->
-        <div class="text-center">
-
-            <span
-                class="inline-block px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm mb-6">
-
-                 RepoX Marketplace
-
-            </span>
-
-            <h1 class="text-5xl md:text-6xl font-extrabold text-white leading-tight">
-
-                Discover Amazing <br>
-
-                <span class="text-blue-500">
-                    Software Projects
-                </span>
-
-            </h1>
-
-            <p class="mt-6 text-slate-400 max-w-2xl mx-auto text-lg leading-8">
-
-                Buy, sell and explore high-quality source code, AI projects,
-                web apps, mobile apps, automation tools and developer assets.
-
-            </p>
-
+<section class="border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold tracking-tight">Explore Projects</h1>
+            <p class="text-[#a1a1a1] text-sm mt-2">Browse high-quality source code, templates, AI projects and developer tools.</p>
         </div>
-
-        <!-- Search -->
-        <div class="mt-12 max-w-3xl mx-auto">
-
-            <form action="/marketplace" method="GET">
-
-                <div
-                    class="flex flex-col md:flex-row gap-4 bg-slate-900/80 backdrop-blur-xl border border-slate-700 rounded-2xl p-3">
-
-                    <input
-                        type="text"
-                        name="search"
-                        placeholder="Search projects, technologies, tags..."
-                        class="flex-1 bg-transparent px-5 py-4 text-white placeholder-slate-500 outline-none">
-
-                    <button
-                        class="px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 transition font-semibold">
-
-                         Search
-
-                    </button>
-
-                </div>
-
-            </form>
-
-        </div>
-
-        <!-- Quick Categories -->
-        <div class="mt-10 flex flex-wrap justify-center gap-3">
-
-            <a href="/marketplace?category=Web Development"
-                class="px-5 py-2 rounded-full border border-slate-700 hover:border-blue-500 hover:text-blue-400 transition">
-
-                 Web Development
-
-            </a>
-
-            <a href="/marketplace?category=AI"
-                class="px-5 py-2 rounded-full border border-slate-700 hover:border-blue-500 hover:text-blue-400 transition">
-
-                 AI
-
-            </a>
-
-            <a href="/marketplace?category=Mobile"
-                class="px-5 py-2 rounded-full border border-slate-700 hover:border-blue-500 hover:text-blue-400 transition">
-
-                 Mobile Apps
-
-            </a>
-
-            <a href="/marketplace?category=Cyber Security"
-                class="px-5 py-2 rounded-full border border-slate-700 hover:border-blue-500 hover:text-blue-400 transition">
-
-                 Cyber Security
-
-            </a>
-
-            <a href="/marketplace?category=Automation"
-                class="px-5 py-2 rounded-full border border-slate-700 hover:border-blue-500 hover:text-blue-400 transition">
-
-                 Automation
-
-            </a>
-
-        </div>
-
-
-
+        <form action="/marketplace" method="GET">
+            <div class="max-w-2xl mx-auto relative">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a1a1a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-4 top-1/2 -translate-y-1/2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="text" name="search" value="<%= search || '' %>" placeholder="Search projects, technologies, tags..." class="w-full rounded-xl bg-neutral-800 text-sm border-white/10 border border-solid pl-12 pr-24 h-12 text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] transition">
+                <button class="bg-[oklch(0.55_0.19_255)] font-medium rounded-lg text-white text-sm absolute right-2 px-4 h-9 top-1/2 -translate-y-1/2 hover:opacity-90 transition">Search</button>
+            </div>
+            <div class="mt-4 flex flex-wrap justify-center gap-2">
+                <a href="/marketplace?category=Web+Development" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">Web Dev</a>
+                <a href="/marketplace?category=AI" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">AI</a>
+                <a href="/marketplace?category=Mobile+Apps" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">Mobile</a>
+                <a href="/marketplace?category=SaaS" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">SaaS</a>
+                <a href="/marketplace?category=Backend" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">Backend</a>
+            </div>
+        </form>
     </div>
-
 </section>

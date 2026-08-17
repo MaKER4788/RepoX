@@ -1,98 +1,15 @@
-<div class="rounded-3xl border border-slate-800 bg-slate-900 p-8 mt-6">
-
-    <h2 class="text-xl font-semibold text-white mb-6">
-
-        Seller
-
-    </h2>
-
-    <div class="flex items-center gap-4">
-
-        <!-- Avatar -->
-
-        <div
-            class="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center text-2xl font-bold text-white">
-
+<div class="rounded-xl border-white/10 border border-solid bg-neutral-900 p-6 mt-4">
+    <h2 class="text-sm font-semibold mb-4">Seller</h2>
+    <div class="flex items-center gap-3">
+        <div class="size-10 rounded-lg bg-[oklch(0.55_0.19_255)] flex items-center justify-center text-sm font-bold text-white">
             <%= project.owner.username.charAt(0).toUpperCase() %>
-
         </div>
-
-        <!-- Info -->
-
         <div>
-
-            <h3 class="text-lg font-semibold text-white">
-
-                <%= project.owner.username %>
-
-            </h3>
-
-            <p class="text-slate-400 text-sm">
-
-                Verified Developer
-
-            </p>
-
+            <h3 class="text-sm font-semibold"><%= project.owner.username %></h3>
+            <p class="text-[#a1a1a1] text-xs">Developer</p>
         </div>
-
     </div>
-
-    <!-- Seller Stats -->
-
-    <div class="grid grid-cols-2 gap-4 mt-8">
-
-        <div class="rounded-xl bg-slate-800 p-4 text-center">
-
-            <p class="text-slate-400 text-sm">
-
-                Projects
-
-            </p>
-
-            <p class="text-white text-xl font-bold">
-
-                --
-            </p>
-
-        </div>
-
-        <div class="rounded-xl bg-slate-800 p-4 text-center">
-
-            <p class="text-slate-400 text-sm">
-
-                Rating
-
-            </p>
-
-            <p class="text-white text-xl font-bold">
-
-                 New
-
-            </p>
-
-        </div>
-
+    <div class="mt-4 space-y-2">
+        <a href="/users/<%= project.owner._id %>" class="block w-full text-center py-2.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 transition text-sm font-medium">View Profile</a>
     </div>
-
-    <!-- Buttons -->
-
-    <div class="mt-8 space-y-3">
-
-        <a
-            href="/users/<%= project.owner._id %>"
-            class="block w-full text-center py-3 rounded-xl bg-blue-600 hover:bg-blue-700 transition font-medium">
-
-            View Profile
-
-        </a>
-
-        <button
-            class="w-full py-3 rounded-xl border border-slate-700 hover:border-cyan-500 transition">
-
-            Contact Seller
-
-        </button>
-
-    </div>
-
 </div>

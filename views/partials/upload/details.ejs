@@ -1,182 +1,44 @@
-<!-- ================= Project Details ================= -->
-
-<section class="border-t border-slate-800 pt-10">
-
-    <div class="mb-8">
-
-        <h2 class="text-3xl font-bold text-white">
-
-             Project Details
-
-        </h2>
-
-        <p class="text-slate-400 mt-2">
-
-            Explain everything buyers need to know before purchasing.
-
-        </p>
-
+<section class="border-t border-white/10 pt-6">
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold">Project Details</h2>
+        <p class="text-[#a1a1a1] text-sm mt-1">Explain everything buyers need to know before purchasing.</p>
     </div>
-
-    <div class="space-y-8">
-
-        <!-- Detailed Description -->
-
+    <div class="space-y-5">
         <div>
-
-            <label class="block text-slate-300 mb-3">
-
-                Detailed Description
-
-            </label>
-
-            <textarea
-                name="description"
-                rows="8"
-                required
-                placeholder="Write a complete description of your project..."
-                class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-blue-500 outline-none resize-y"></textarea>
-
+            <label class="block text-[#a1a1a1] text-sm mb-1">Detailed Description</label>
+            <textarea name="description" rows="6" required placeholder="Write a complete description of your project..." class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] resize-y"></textarea>
         </div>
-
-        <!-- Features -->
-
         <div>
-
-            <label class="block text-slate-300 mb-3">
-
-                Key Features
-
-            </label>
-
-            <textarea
-                name="features"
-                rows="5"
-                placeholder="Example:
-
-• JWT Authentication
-• Admin Dashboard
-• Payment Integration
-• Responsive UI"
-                class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-cyan-500 outline-none resize-y"></textarea>
-
+            <label class="block text-[#a1a1a1] text-sm mb-1">Key Features</label>
+            <textarea name="features" rows="4" placeholder="JWT Authentication, Admin Dashboard, Payment Integration..." class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] resize-y"></textarea>
         </div>
-
-        <!-- Installation -->
-
         <div>
-
-            <label class="block text-slate-300 mb-3">
-
-                Installation Guide
-
-            </label>
-
-            <textarea
-                name="installation"
-                rows="5"
-                placeholder="Example:
-
-1. npm install
-2. Create .env
-3. npm run dev"
-                class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-green-500 outline-none resize-y"></textarea>
-
+            <label class="block text-[#a1a1a1] text-sm mb-1">Installation Guide</label>
+            <textarea name="installation" rows="4" placeholder="npm install, Create .env, npm run dev..." class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] resize-y"></textarea>
         </div>
-
-        <!-- Requirements -->
-
-        <div class="grid md:grid-cols-2 gap-6">
-
+        <div class="grid md:grid-cols-2 gap-4">
             <div>
-
-                <label class="block text-slate-300 mb-3">
-
-                    Requirements
-
-                </label>
-
-                <textarea
-                    name="requirements"
-                    rows="4"
-                    placeholder="Node.js v22+, MongoDB, Redis..."
-                    class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-purple-500 outline-none"></textarea>
-
+                <label class="block text-[#a1a1a1] text-sm mb-1">Requirements</label>
+                <textarea name="requirements" rows="3" placeholder="Node.js v22+, MongoDB, Redis..." class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)]"></textarea>
             </div>
-
             <div>
-
-                <label class="block text-slate-300 mb-3">
-
-                    What's Included
-
-                </label>
-
-                <textarea
-                    name="included"
-                    rows="4"
-                    placeholder="Source Code, Documentation, Database..."
-                    class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-pink-500 outline-none"></textarea>
-
+                <label class="block text-[#a1a1a1] text-sm mb-1">What's Included</label>
+                <textarea name="included" rows="3" placeholder="Source Code, Documentation, Database..." class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)]"></textarea>
             </div>
-
         </div>
-
-        <!-- Version -->
-
-        <div class="grid md:grid-cols-2 gap-6">
-
+        <div class="grid md:grid-cols-2 gap-4">
             <div>
-
-                <label class="block text-slate-300 mb-3">
-
-                    Current Version
-
-                </label>
-
-                <input
-                    type="text"
-                    name="version"
-                    placeholder="v1.0.0"
-                    class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-yellow-500 outline-none">
-
+                <label class="block text-[#a1a1a1] text-sm mb-1">Current Version</label>
+                <input type="text" name="version" placeholder="v1.0.0" class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)]">
             </div>
-
             <div>
-
-                <label class="block text-slate-300 mb-3">
-
-                    Last Updated
-
-                </label>
-
-                <input
-                    type="date"
-                    name="lastUpdated"
-                    class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-yellow-500 outline-none">
-
+                <label class="block text-[#a1a1a1] text-sm mb-1">Last Updated</label>
+                <input type="date" name="lastUpdated" class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 outline-none focus:border-[oklch(0.55_0.19_255)]">
             </div>
-
         </div>
-
-        <!-- Changelog -->
-
         <div>
-
-            <label class="block text-slate-300 mb-3">
-
-                Changelog
-
-            </label>
-
-            <textarea
-                name="changelog"
-                rows="5"
-                placeholder="v1.0.0 - Initial Release"
-                class="w-full px-5 py-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-orange-500 outline-none resize-y"></textarea>
-
+            <label class="block text-[#a1a1a1] text-sm mb-1">Changelog</label>
+            <textarea name="changelog" rows="3" placeholder="v1.0.0 - Initial Release" class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] resize-y"></textarea>
         </div>
-
     </div>
-
 </section>
