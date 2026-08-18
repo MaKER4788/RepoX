@@ -1,0 +1,153 @@
+<div class="w-full">
+    <div class="overflow-x-auto rounded-lg bg-neutral-900 border-white/10 border border-solid p-1 justify-start gap-1 w-full h-auto flex">
+        <button onclick="showTab('overview')" class="tab-btn text-xs leading-4 px-3 py-1.5 rounded-md transition" data-tab="overview">Overview</button>
+        <button onclick="showTab('features')" class="tab-btn text-xs leading-4 px-3 py-1.5 rounded-md transition" data-tab="features">Features</button>
+        <button onclick="showTab('tech')" class="tab-btn text-xs leading-4 px-3 py-1.5 rounded-md transition" data-tab="tech">Tech Stack</button>
+        <button onclick="showTab('requirements')" class="tab-btn text-xs leading-4 px-3 py-1.5 rounded-md transition" data-tab="requirements">Requirements</button>
+        <button onclick="showTab('installation')" class="tab-btn text-xs leading-4 px-3 py-1.5 rounded-md transition" data-tab="installation">Installation</button>
+        <button onclick="showTab('documentation')" class="tab-btn text-xs leading-4 px-3 py-1.5 rounded-md transition" data-tab="documentation">Documentation</button>
+        <button onclick="showTab('changelog')" class="tab-btn text-xs leading-4 px-3 py-1.5 rounded-md transition" data-tab="changelog">Changelog</button>
+        <button onclick="showTab('reviews')" class="tab-btn text-xs leading-4 px-3 py-1.5 rounded-md transition" data-tab="reviews">Reviews</button>
+    </div>
+
+    <div id="tab-overview" class="tab-content mt-6">
+        <div class="space-y-4 leading-relaxed text-[#a1a1a1] text-sm leading-5">
+            <% if(project.description){ %>
+            <p><%= project.description %></p>
+            <% } else { %>
+            <p>No description available for this project.</p>
+            <% } %>
+        </div>
+    </div>
+
+    <div id="tab-features" class="tab-content mt-6 hidden">
+        <% if(project.features){ %>
+        <ul class="space-y-3 text-[#a1a1a1] text-sm leading-5">
+            <% project.features.split('\n').filter(f => f.trim()).forEach(function(feature){ %>
+            <li class="flex items-center gap-3">
+                <svg class="size-4 text-[oklch(0.7_0.14_160)] shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                <%= feature.trim() %>
+            </li>
+            <% }) %>
+        </ul>
+        <% } else { %>
+        <p class="text-[#a1a1a1] text-sm">No features listed.</p>
+        <% } %>
+    </div>
+
+    <div id="tab-tech" class="tab-content mt-6 hidden">
+        <% if(project.techStack && project.techStack.length){ %>
+        <div class="flex flex-wrap gap-2">
+            <% project.techStack.forEach(function(tech){ %>
+            <span class="font-mono rounded-md bg-neutral-800 text-xs leading-4 border-white/10 border border-solid px-2.5 py-1"><%= tech %></span>
+            <% }) %>
+        </div>
+        <% } else { %>
+        <p class="text-[#a1a1a1] text-sm">No tech stack specified.</p>
+        <% } %>
+    </div>
+
+    <div id="tab-requirements" class="tab-content mt-6 hidden">
+        <% if(project.requirements){ %>
+        <ul class="space-y-2 font-mono text-[#a1a1a1] text-sm leading-5">
+            <% project.requirements.split('\n').filter(r => r.trim()).forEach(function(req){ %>
+            <li><%= req.trim() %></li>
+            <% }) %>
+        </ul>
+        <% } else { %>
+        <p class="text-[#a1a1a1] text-sm">No requirements specified.</p>
+        <% } %>
+    </div>
+
+    <div id="tab-installation" class="tab-content mt-6 hidden">
+        <% if(project.installation){ %>
+        <div class="bg-[oklch(0.17_0_0)] font-mono rounded-lg text-[#a1a1a1] text-sm leading-5 border-white/10 border border-solid p-4">
+            <% project.installation.split('\n').filter(cmd => cmd.trim()).forEach(function(cmd){ %>
+            <p class="text-neutral-50">$ <%= cmd.trim() %></p>
+            <% }) %>
+        </div>
+        <% } else { %>
+        <p class="text-[#a1a1a1] text-sm">No installation instructions provided.</p>
+        <% } %>
+    </div>
+
+    <div id="tab-documentation" class="tab-content mt-6 hidden">
+        <% if(project.documentation){ %>
+        <p class="leading-relaxed text-[#a1a1a1] text-sm leading-5"><%= project.documentation %></p>
+        <% } else { %>
+        <p class="leading-relaxed text-[#a1a1a1] text-sm leading-5">Full documentation covering setup, environment configuration, deployment guides, and API references is included with your purchase.</p>
+        <% } %>
+    </div>
+
+    <div id="tab-changelog" class="tab-content mt-6 hidden">
+        <% if(project.changelog){ %>
+        <div class="space-y-4 text-sm leading-5">
+            <% project.changelog.split('\n').filter(c => c.trim()).forEach(function(entry){ %>
+            <div class="flex gap-4">
+                <span class="font-mono text-[#a1a1a1]"><%= entry.split(' - ')[0] || 'v1.0.0' %></span>
+                <p class="text-[#a1a1a1]"><%= entry.split(' - ').slice(1).join(' - ') || entry %></p>
+            </div>
+            <% }) %>
+        </div>
+        <% } else { %>
+        <p class="text-[#a1a1a1] text-sm">No changelog available.</p>
+        <% } %>
+    </div>
+
+    <div id="tab-reviews" class="tab-content mt-6 hidden">
+        <% if(project.reviews && project.reviews.length){ %>
+        <div class="space-y-4">
+            <% project.reviews.forEach(function(review){ %>
+            <div class="rounded-lg border-white/10 border border-solid p-4 bg-neutral-900">
+                <div class="flex items-center gap-3 mb-2">
+                    <div class="size-8 rounded-full bg-neutral-800 flex items-center justify-center text-xs font-bold">
+                        <%= review.user.fullname.charAt(0).toUpperCase() %>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium"><%= review.user.fullname %></p>
+                        <p class="text-[#a1a1a1] text-xs"><%= new Date(review.createdAt).toLocaleDateString() %></p>
+                    </div>
+                    <div class="ml-auto text-yellow-400 text-sm">
+                        <% for(let i=1; i<=5; i++){ %><%= i <= review.rating ? '★' : '☆' %><% } %>
+                    </div>
+                </div>
+                <p class="text-[#a1a1a1] text-sm leading-5"><%= review.comment %></p>
+            </div>
+            <% }) %>
+        </div>
+        <% } else { %>
+        <div class="text-center rounded-lg border-white/10 border border-dashed flex py-16 flex-col justify-center items-center gap-3">
+            <svg class="size-8 text-[#a1a1a1]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <p class="font-medium text-sm leading-5">No reviews yet</p>
+            <p class="text-[#a1a1a1] text-xs leading-4">Be the first to review this product after purchase.</p>
+        </div>
+        <% } %>
+    </div>
+</div>
+
+<style>
+.tab-btn {
+    color: #a1a1a1;
+}
+.tab-btn:hover {
+    color: #fafafa;
+}
+.tab-btn.active {
+    background-color: #262626;
+    color: #fafafa;
+}
+</style>
+
+<script>
+function showTab(tabName) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    
+    document.getElementById('tab-' + tabName).classList.remove('hidden');
+    document.querySelector('[data-tab="' + tabName + '"]').classList.add('active');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    showTab('overview');
+});
+</script>

@@ -1,27 +1,62 @@
-<div class="sticky top-8 space-y-4">
-    <div class="rounded-xl border-white/10 border border-solid bg-neutral-900 p-6">
-        <div class="flex items-center justify-between">
-            <span class="text-[#a1a1a1] text-sm">Price</span>
-            <span class="text-2xl font-bold">₹<%= project.price %></span>
+<div class="sticky flex top-20 flex-col gap-6">
+    <div class="bg-neutral-900 border-white/10 border-0 border-solid rounded-xl p-6 gap-4 flex flex-col">
+        <div class="p-0 gap-1 flex flex-col">
+            <span class="font-semibold text-3xl leading-9 tracking-tight">₹<%= project.price %></span>
+            <span class="text-[#a1a1a1] text-xs leading-4">One-time purchase · Lifetime updates</span>
         </div>
-        <% if(project.discount > 0){ %>
-        <span class="inline-block mt-3 px-2 py-0.5 rounded-md bg-red-500/10 text-red-400 text-xs"><%= project.discount %>% OFF</span>
-        <% } %>
-        <div class="mt-5 space-y-3">
-            <button class="w-full py-3 rounded-lg bg-[oklch(0.55_0.19_255)] hover:opacity-90 transition font-medium text-sm">Buy Now</button>
-            <form action="/wishlist/<%= project._id %>" method="POST">
-                <button class="w-full py-3 rounded-lg border-white/10 border border-solid hover:border-white/20 transition text-sm text-[#a1a1a1]">♡ Add to Wishlist</button>
+        <div class="p-0 gap-4">
+            <div class="flex flex-col gap-2">
+                <span class="font-medium text-sm leading-5">What's included</span>
+                <ul class="text-[#a1a1a1] text-sm leading-5 flex flex-col gap-2">
+                    <li class="flex items-center gap-2">
+                        <svg class="size-4 text-[oklch(0.7_0.14_160)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                        Source code
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <svg class="size-4 text-[oklch(0.7_0.14_160)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                        Documentation
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <svg class="size-4 text-[oklch(0.7_0.14_160)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                        Installation instructions
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <svg class="size-4 text-[oklch(0.7_0.14_160)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                        Updates
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <svg class="size-4 text-[oklch(0.7_0.14_160)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                        License information
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="p-0 flex-col gap-2 flex">
+            <button class="bg-[oklch(0.55_0.16_252)] text-white gap-2 w-full flex items-center justify-center py-3 rounded-lg font-medium text-sm hover:opacity-90 transition">
+                <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                Buy Now
+            </button>
+            <form action="/wishlist/<%= project._id %>" method="POST" class="w-full">
+                <button type="submit" class="border-white/10 border-0 border-solid gap-2 w-full flex items-center justify-center py-3 rounded-lg text-sm text-[#a1a1a1] hover:text-neutral-50 transition">
+                    <svg class="size-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                </button>
             </form>
         </div>
     </div>
-    <div class="rounded-xl border-white/10 border border-solid bg-neutral-900 p-6">
-        <h2 class="text-sm font-semibold mb-4">What's Included</h2>
-        <div class="space-y-3 text-xs">
-            <div class="flex justify-between"><span class="text-[#a1a1a1]">Source Code</span><span>✓</span></div>
-            <div class="flex justify-between"><span class="text-[#a1a1a1]">Documentation</span><span>✓</span></div>
-            <div class="flex justify-between"><span class="text-[#a1a1a1]">License</span><span><%= project.license || "Single Use" %></span></div>
-            <div class="flex justify-between"><span class="text-[#a1a1a1]">Support</span><span><%= project.support || "No Support" %></span></div>
-            <div class="flex justify-between"><span class="text-[#a1a1a1]">Version</span><span><%= project.version || "1.0.0" %></span></div>
+    <div class="bg-neutral-900 border-white/10 border-0 border-solid rounded-xl p-6 gap-4 flex flex-col">
+        <div class="p-0 gap-0">
+            <span class="font-medium text-sm leading-5">Seller</span>
+        </div>
+        <div class="p-0 gap-4">
+            <div class="flex items-center gap-3">
+                <div class="size-11 rounded-full bg-[oklch(0.55_0.16_252)] flex items-center justify-center text-sm font-bold text-white">
+                    <%= project.owner.username.charAt(0).toUpperCase() %>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-medium text-sm leading-5"><%= project.owner.username %></span>
+                    <a href="/users/<%= project.owner._id %>" class="text-[oklch(0.6_0.14_252)] text-xs leading-4 hover:underline">Developer profile</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
