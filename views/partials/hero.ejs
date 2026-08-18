@@ -1,27 +1,58 @@
-<section class="border-b border-white/10 p-8">
-    <div class="max-w-3xl text-center flex mx-auto flex-col items-center gap-4">
-        <h1 class="font-bold text-3xl leading-9 tracking-tight">
-            Build faster with ready-made software.
-        </h1>
-        <p class="text-[#a1a1a1] text-sm leading-5">
-            Discover production-ready projects, templates, AI applications and developer tools.
-        </p>
-        <form action="/marketplace" method="GET" class="relative flex mt-2 items-center w-full">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a1a1a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-4"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-            <input type="text" name="search" placeholder="Search projects, templates, tools..." class="rounded-xl bg-neutral-800 text-sm leading-5 border-white/10 border border-solid pl-12 pr-28 w-full h-12 text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] transition">
-            <button class="bg-[oklch(0.55_0.19_255)] font-medium rounded-lg text-white text-sm leading-5 absolute right-2 px-4 h-9 hover:opacity-90 transition">
-                Search
-            </button>
-        </form>
-        <div class="flex flex-wrap justify-center items-center gap-2">
-            <span class="text-[#a1a1a1] text-xs leading-4">Popular:</span>
-            <a href="/marketplace?tech=React" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs leading-4 border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">React</a>
-            <a href="/marketplace?tech=Next.js" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs leading-4 border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">Next.js</a>
-            <a href="/marketplace?tech=Node.js" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs leading-4 border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">Node.js</a>
-            <a href="/marketplace?tech=Python" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs leading-4 border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">Python</a>
-            <a href="/marketplace?tech=Flutter" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs leading-4 border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">Flutter</a>
-            <a href="/marketplace?category=AI" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs leading-4 border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">AI</a>
-            <a href="/marketplace?tech=Firebase" class="rounded-full bg-neutral-900 text-[#a1a1a1] text-xs leading-4 border-white/10 border border-solid px-3 py-1 hover:text-neutral-50 hover:border-white/20 transition">Firebase</a>
+<section class="grid grid-cols-1 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] border-white/10 border-b border-solid py-10 md:py-14 items-center gap-10 md:gap-12">
+    <div class="flex flex-col gap-5 min-w-0">
+        <span class="rounded-full text-neutral-200 border-neutral-200/40 border border-solid px-3 py-1 gap-2 w-fit text-xs leading-4 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            The developer marketplace
+        </span>
+        <div class="flex flex-col gap-3">
+            <h1 class="font-semibold text-[44px] md:text-[48px] leading-[1.05] tracking-tight">
+                Software that gets you from idea to shipped.
+            </h1>
+            <p class="max-w-[520px] text-[#a1a1a1] text-base leading-7">
+                Discover production-ready projects, templates, APIs, and tools built by developers who have already solved the hard parts.
+            </p>
+        </div>
+        <div class="max-w-[520px] rounded-xl bg-neutral-900 border-white/10 border border-solid flex p-2 items-center gap-2 h-[54px]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a1a1a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-3 shrink-0"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <form action="/marketplace" method="GET" class="flex-1 flex items-center min-w-0">
+                <input type="text" name="search" placeholder="Search projects, templates, tools..." class="bg-transparent shadow-none border-0 h-10 text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none w-full min-w-0">
+            </form>
+            <button class="rounded-lg bg-neutral-200 text-neutral-900 font-medium text-sm px-5 h-10 shrink-0 hover:opacity-90 transition">Search</button>
+        </div>
+        <div class="text-[#a1a1a1] text-sm leading-5 flex items-center gap-2 flex-wrap">
+            <span>Popular:</span>
+            <a href="/marketplace?tech=React" class="rounded-full border-white/10 border border-solid text-xs leading-4 px-3 h-8 flex items-center hover:text-neutral-50 hover:border-white/20 transition">React</a>
+            <a href="/marketplace?tech=Next.js" class="rounded-full border-white/10 border border-solid text-xs leading-4 px-3 h-8 flex items-center hover:text-neutral-50 hover:border-white/20 transition">Next.js</a>
+            <a href="/marketplace?tech=Python" class="rounded-full border-white/10 border border-solid text-xs leading-4 px-3 h-8 flex items-center hover:text-neutral-50 hover:border-white/20 transition">Python</a>
+            <a href="/marketplace?category=AI" class="rounded-full border-white/10 border border-solid text-xs leading-4 px-3 h-8 flex items-center hover:text-neutral-50 hover:border-white/20 transition">AI</a>
+        </div>
+    </div>
+    <div class="relative rounded-2xl bg-neutral-900 border-white/10 border border-solid p-6 flex justify-center items-center overflow-hidden max-w-[460px] w-full mx-auto md:mx-0" style="height: 280px;">
+        <div class="size-24 rounded-2xl bg-[#1447e6]/10 border-[#1447e6]/40 border border-solid absolute right-8 top-8"></div>
+        <div class="size-16 rounded-full bg-[#00bc7d]/10 border-[#00bc7d]/40 border border-solid absolute left-8 bottom-8"></div>
+        <div class="relative max-w-sm shadow-2xl rounded-xl bg-neutral-950 border-white/10 border border-solid p-4 w-full min-w-0">
+            <div class="flex mb-5 justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <div class="size-2 rounded-full bg-[#00bc7d] shrink-0"></div>
+                    <span class="text-[#a1a1a1] text-xs leading-4">Weekly build activity</span>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a1a1a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+            </div>
+            <div class="border-white/10 border-b border-solid flex px-2 items-end gap-2 h-28">
+                <div class="rounded-t-sm bg-[#1447e6]/40 flex-1 min-w-0 h-10"></div>
+                <div class="rounded-t-sm bg-[#1447e6]/60 flex-1 min-w-0 h-16"></div>
+                <div class="rounded-t-sm bg-[#1447e6]/50 flex-1 min-w-0 h-12"></div>
+                <div class="rounded-t-sm bg-[#1447e6] flex-1 min-w-0 h-24"></div>
+                <div class="rounded-t-sm bg-[#1447e6]/80 flex-1 min-w-0 h-20"></div>
+                <div class="rounded-t-sm bg-[#00bc7d] flex-1 min-w-0 h-28"></div>
+                <div class="rounded-t-sm bg-[#00bc7d]/70 flex-1 min-w-0 h-24"></div>
+            </div>
+            <div class="text-[#a1a1a1] text-[10px] flex mt-4 justify-between">
+                <span>Mon</span>
+                <span>Wed</span>
+                <span>Fri</span>
+                <span>Sun</span>
+            </div>
         </div>
     </div>
 </section>
