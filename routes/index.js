@@ -36,4 +36,8 @@ router.get("/upload", function(req, res) {
   res.render("upload", { project: null });
 });
 
+router.get('/categories', function(req, res, next) {
+  res.render('categories');
+});
+
 module.exports = router;
