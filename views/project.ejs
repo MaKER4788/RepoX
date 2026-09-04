@@ -1,4 +1,4 @@
-<%- include("partials/header") %>
+<% pageTitle = project ? project.title : 'Project'; pageDescription = (project && project.shortDescription) ? project.shortDescription : 'View this project on RepoX.'; %><%- include("partials/header") %>
 
 <main class="bg-[#0B0D10] min-h-screen">
     <div class="max-w-7xl mx-auto px-6 py-8 grid lg:grid-cols-3 gap-8">

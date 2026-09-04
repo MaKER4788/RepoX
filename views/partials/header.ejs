@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
     <link rel="stylesheet" href="/output.css">
+    <title><%= typeof pageTitle !== 'undefined' && pageTitle ? pageTitle + ' · RepoX' : 'RepoX · Buy. Sell. Build.' %></title>
+    <meta name="description" content="<%= typeof pageDescription !== 'undefined' && pageDescription ? pageDescription : 'RepoX — the marketplace to buy, sell, and build code repositories, templates, and developer tools.' %>">
 </head>
 
 <body class="bg-[#0B0D10] text-neutral-50 min-h-screen">
