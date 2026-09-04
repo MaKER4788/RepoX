@@ -82,9 +82,13 @@ app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
+  // render custom 404 page, or generic error page for other statuses
   res.status(err.status || 500);
-  res.render('error');
+  if (err.status === 404) {
+    res.render('404');
+  } else {
+    res.render('error');
+  }
 });
 
 module.exports = app;
