@@ -8,6 +8,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const crypto = require("crypto");
 const passport = require('passport');
 const expressSession = require("express-session");
 const MongoStore = require("connect-mongo").MongoStore;
