@@ -13,6 +13,7 @@
                 <p class="text-[#a1a1a1] text-sm mt-3">Create your account and start selling.</p>
             </div>
             <form action="/register" method="POST" class="space-y-4">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                 <div>
                     <label class="block text-sm mb-1 text-[#a1a1a1]">Full Name</label>
                     <input type="text" name="fullname" placeholder="John Doe" required class="w-full rounded-lg bg-neutral-800 border-white/10 border border-solid px-4 py-2.5 text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] transition">

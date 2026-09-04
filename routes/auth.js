@@ -1,16 +1,33 @@
 const express = require("express");
 const router = express.Router();
+const rateLimit = require("express-rate-limit");
 
 const passport = require("passport");
 const authController = require("../controllers/authController");
 const userModel = require("../models/user");
 const { isLoggedIn } = require("../middlewares/middleware");
 
+const loginLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: 20,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: "Too many login attempts. Please try again later."
+});
+
+const registerLimiter = rateLimit({
+    windowMs: 60 * 60 * 1000,
+    limit: 5,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: "Too many accounts created from this IP. Please try again later."
+});
+
 // Register
 router.get("/register", function(req, res) {
     res.render("register");
 });
-router.post("/register", async function (req, res, next) {
+router.post("/register", registerLimiter, async function (req, res, next) {
   try {
     const userdata = new userModel({
       fullname: req.body.fullname,
@@ -32,7 +49,7 @@ router.get("/login", function(req, res) {
     res.render("login");
 });
 
-router.post("/login", passport.authenticate("local",{
+router.post("/login", loginLimiter, passport.authenticate("local",{
   successRedirect: "/profile",
   failureRedirect: "/"
 }), function(req,res){ })

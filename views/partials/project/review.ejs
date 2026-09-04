@@ -3,6 +3,7 @@
 
     <% if(user){ %>
     <form action="/reviews/<%= project._id %>" method="POST" class="space-y-4 mb-8">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <div>
             <label class="text-[#a1a1a1] text-sm block mb-1">Rating</label>
             <select name="rating" required class="w-full px-3 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 outline-none focus:border-[oklch(0.55_0.19_255)]">

@@ -1,5 +1,10 @@
 const Project = require("../models/project");
 
+// Escape regex metacharacters in user input to prevent ReDoS / regex abuse.
+function escapeRegex(str) {
+    return String(str).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 exports.getMarketplace = async (req, res) => {
 
     const search = req.query.search || "";
@@ -33,7 +38,7 @@ exports.getMarketplace = async (req, res) => {
     if (search) {
 
         filter.title = {
-            $regex: search,
+            $regex: escapeRegex(search),
             $options: "i"
         };
 
@@ -47,7 +52,7 @@ exports.getMarketplace = async (req, res) => {
 
     if (tech) {
 
-        filter.techStack = { $regex: tech, $options: "i" };
+        filter.techStack = { $regex: escapeRegex(tech), $options: "i" };
 
     }
     let sortOption = {

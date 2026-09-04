@@ -5,6 +5,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+const { doubleCsrf } = require("csrf-csrf");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -24,6 +27,20 @@ const sitemapRoutes = require("./routes/sitemap");
 const paymentRoutes = require("./routes/payments");
 var app = express();
 
+const isProd = process.env.NODE_ENV === "production";
+
+// Session secret: fail fast in production, otherwise generate a random one
+// (never fall back to a hardcoded guessable value).
+let sessionSecret = process.env.SESSION_SECRET;
+if (!sessionSecret) {
+  if (isProd) {
+    console.error("SESSION_SECRET must be set in production. Aborting.");
+    process.exit(1);
+  }
+  sessionSecret = crypto.randomBytes(64).toString("hex");
+  console.warn("SESSION_SECRET not set; using a random per-boot secret (sessions reset on restart).");
+}
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -32,9 +49,15 @@ app.locals.mediaUrl = function (mediaPath) {
     return /^https?:\/\//.test(mediaPath) ? mediaPath : "/" + mediaPath;
 };
 app.use(expressSession({
-    secret: process.env.SESSION_SECRET || "hell",
+    secret: sessionSecret,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: true,
+        sameSite: "lax",
+        secure: isProd,
+        maxAge: 7 * 24 * 60 * 60 * 1000
+    },
     store: MongoStore.create({
         mongoUrl: process.env.MONGO_URI || "mongodb://127.0.0.1:27017/resting"
     })
@@ -52,10 +75,44 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use(flash());
 
+// Security headers (CSP, X-Frame-Options, HSTS, etc.)
+// Note: 'unsafe-inline' for scripts/styles is required by the existing templates
+// (inline onclick/onsubmit handlers and inline <script> blocks); the rest of the
+// CSP defaults (frame-ancestors 'self', object-src 'none', upgrade-insecure-requests)
+// still apply.
+app.use(helmet({
+    contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+            "script-src": ["'self'", "'unsafe-inline'"],
+            "script-src-attr": ["'unsafe-inline'"],
+            "style-src": ["'self'", "https:", "'unsafe-inline'"]
+        }
+    }
+}));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// CSRF protection
+const csrfSecret = process.env.CSRF_SECRET || sessionSecret;
+const { generateCsrfToken, doubleCsrfProtection } = doubleCsrf({
+    getSecret: () => csrfSecret,
+    getSessionIdentifier: (req) => req.session.id,
+    getCsrfTokenFromRequest: (req) => req.body._csrf,
+    cookieName: isProd ? "__Host-repox-xsrf-token" : "repox-xsrf-token",
+    cookieOptions: { httpOnly: true, sameSite: "lax", secure: isProd, path: "/" },
+    size: 64,
+    ignoredMethods: ["GET", "HEAD", "OPTIONS"]
+});
+app.use((req, res, next) => {
+    res.locals.csrfToken = generateCsrfToken(req, res);
+    next();
+});
+app.use(doubleCsrfProtection);
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/uploads", express.static("uploads"));
 app.use('/', indexRouter);

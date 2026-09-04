@@ -4,6 +4,7 @@
     <div class="max-w-3xl mx-auto px-6">
         <h1 class="text-2xl font-bold mb-6">Edit Project</h1>
         <form action="/projects/<%= project._id %>/edit" method="POST" enctype="multipart/form-data" class="rounded-xl bg-neutral-900 border-white/10 border border-solid p-6 space-y-6">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <%- include("partials/upload/basicInfo",{project}) %>
             <%- include("partials/upload/media",{project}) %>
             <%- include("partials/upload/details",{project}) %>
