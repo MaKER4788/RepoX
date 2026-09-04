@@ -739,6 +739,9 @@
   .border-\[\#1447e6\]\/40 {
     border-color: color-mix(in oklab, #1447e6 40%, transparent);
   }
+  .border-\[oklch\(0\.7_0\.14_160\)\]\/30 {
+    border-color: color-mix(in oklab, oklch(0.7 0.14 160) 30%, transparent);
+  }
   .border-black\/10 {
     border-color: color-mix(in srgb, #000 10%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -786,6 +789,9 @@
   }
   .bg-\[\#1447e6\]\/80 {
     background-color: color-mix(in oklab, #1447e6 80%, transparent);
+  }
+  .bg-\[oklch\(0\.7_0\.14_160\)\]\/10 {
+    background-color: color-mix(in oklab, oklch(0.7 0.14 160) 10%, transparent);
   }
   .bg-\[oklch\(0\.17_0_0\)\] {
     background-color: oklch(0.17 0 0);

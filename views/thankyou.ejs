@@ -1,0 +1,40 @@
+<%- include("partials/header") %>
+
+<section class="min-h-screen bg-[#0B0D10] flex items-center justify-center px-6">
+    <div class="max-w-lg mx-auto text-center">
+        <div class="mb-8">
+            <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-[oklch(0.7_0.14_160)]/10 border border-[oklch(0.7_0.14_160)]/30 mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="oklch(0.7_0.14_160)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-neutral-50 mb-3">Thank You!</h1>
+            <p class="text-[#a1a1a1] text-sm leading-relaxed max-w-sm mx-auto">
+                <% if (project && project.title) { %>
+                    Your purchase of <span class="text-neutral-200 font-medium"><%= project.title %></span> was successful.
+                <% } else { %>
+                    Your order was successful.
+                <% } %>
+                A receipt has been sent to your email and the project is now available in your dashboard.
+            </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href="/dashboard" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[oklch(0.65_0.16_255)] text-white text-sm font-medium hover:opacity-90 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="7" height="9" x="3" y="3" rx="1"/>
+                    <rect width="7" height="5" x="14" y="3" rx="1"/>
+                    <rect width="7" height="9" x="14" y="12" rx="1"/>
+                    <rect width="7" height="5" x="3" y="16" rx="1"/>
+                </svg>
+                Go to Dashboard
+            </a>
+            <a href="/marketplace" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-white/10 bg-neutral-900 text-neutral-200 text-sm font-medium hover:bg-neutral-800 transition">
+                Continue Shopping
+            </a>
+        </div>
+    </div>
+</section>
+
+<%- include("partials/footer") %>
