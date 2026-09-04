@@ -20,6 +20,7 @@ const authRoutes = require("./routes/auth");
 const wishlistRoutes = require("./routes/wishlist");
 const dashboardRoutes = require("./routes/dashboard");
 const reviewRoutes = require("./routes/review");
+const sitemapRoutes = require("./routes/sitemap");
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -65,6 +66,7 @@ app.use('/', authRoutes);
 app.use('/wishlist', wishlistRoutes);
 app.use('/dashboard', dashboardRoutes);
 app.use("/reviews", reviewRoutes);
+app.use('/', sitemapRoutes);
 
 // Chrome DevTools well-known probe — respond with empty settings so it doesn't 404
 app.get('/.well-known/appspecific/com.chrome.devtools.json', (req, res) => {
