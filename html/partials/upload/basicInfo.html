@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+    <link rel="stylesheet" href="/output.css">
+    <title>Basic Information · RepoX</title>
+    <meta name="description" content="Basic information form for uploading a project on RepoX.">
+</head>
+
+<body class="bg-[#0B0D10] text-neutral-50 min-h-screen">
+
+<header class="sticky z-50 bg-neutral-900 border-b border-white/10 border-t-0 border-r-0 border-l-0 border-solid top-0 w-full">
+    <div class="flex px-8 h-16 justify-between items-center gap-6 max-w-[1400px] mx-auto">
+        <div class="flex items-center gap-8">
+            <a href="/" class="flex items-center gap-2">
+                <div class="size-8 bg-neutral-200 rounded-lg flex justify-center items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-900"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+                </div>
+                <span class="font-bold text-lg leading-7 tracking-tight">RepoX</span>
+            </a>
+            <nav class="hidden lg:flex items-center gap-1">
+                <a href="/marketplace" class="font-medium rounded-md text-[#a1a1a1] text-sm leading-5 px-3 py-1.5 flex items-center gap-2 hover:text-neutral-50 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                    Explore
+                </a>
+                <a href="/categories" class="font-medium rounded-md text-[#a1a1a1] text-sm leading-5 px-3 py-1.5 flex items-center gap-2 hover:text-neutral-50 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+                    Categories
+                </a>
+                <a href="/marketplace?sort=popular" class="font-medium rounded-md text-[#a1a1a1] text-sm leading-5 px-3 py-1.5 flex items-center gap-2 hover:text-neutral-50 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                    Trending
+                </a>
+                <a href="/marketplace?sort=newest" class="font-medium rounded-md text-[#a1a1a1] text-sm leading-5 px-3 py-1.5 flex items-center gap-2 hover:text-neutral-50 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    New Releases
+                </a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-2">
+            <form action="/marketplace" method="GET" class="relative hidden lg:flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a1a1a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-3"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="text" name="search" placeholder="Search projects..." class="rounded-lg bg-neutral-800 text-sm leading-5 border-0 border-white/10 border-solid pl-9 w-56 h-9 text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] transition">
+            </form>
+            <a href="/wishlist" class="relative size-9 rounded-lg text-[#a1a1a1] flex justify-center items-center hover:text-neutral-50 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </a>
+            <a href="/cart" class="relative size-9 rounded-lg text-[#a1a1a1] flex justify-center items-center hover:text-neutral-50 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            </a>
+            <a href="/upload" class="bg-neutral-200 text-neutral-900 font-medium rounded-lg text-sm leading-5 px-4 gap-1.5 h-9 flex items-center hover:opacity-90 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                Sell
+            </a>
+            <a href="/login" class="size-9 border-white/10 border border-solid rounded-lg overflow-hidden flex justify-center items-center bg-neutral-800 text-sm leading-5 font-medium text-[#a1a1a1] hover:text-neutral-50 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </a>
+            <button id="menuBtn" class="lg:hidden size-9 rounded-lg text-[#a1a1a1] flex justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+    </div>
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-white/10 bg-[#0B0D10]">
+        <div class="flex flex-col p-4 gap-1">
+            <a href="/marketplace" class="px-3 py-2 rounded-lg text-[#a1a1a1] text-sm hover:bg-neutral-800 hover:text-neutral-50 transition">Explore</a>
+            <a href="/categories" class="px-3 py-2 rounded-lg text-[#a1a1a1] text-sm hover:bg-neutral-800 hover:text-neutral-50 transition">Categories</a>
+            <a href="/marketplace?sort=popular" class="px-3 py-2 rounded-lg text-[#a1a1a1] text-sm hover:bg-neutral-800 hover:text-neutral-50 transition">Trending</a>
+            <a href="/marketplace?sort=newest" class="px-3 py-2 rounded-lg text-[#a1a1a1] text-sm hover:bg-neutral-800 hover:text-neutral-50 transition">New Releases</a>
+            <form action="/marketplace" method="GET" class="mt-2 flex gap-2">
+                <input type="text" name="search" placeholder="Search..." class="flex-1 rounded-lg bg-neutral-800 text-sm border-white/10 border border-solid px-3 py-2 text-neutral-50 placeholder-[#a1a1a1] outline-none">
+            </form>
+            <div class="border-t border-white/10 mt-2 pt-2 flex flex-col gap-1">
+                <a href="/login" class="px-3 py-2 rounded-lg text-[#a1a1a1] text-sm hover:bg-neutral-800 hover:text-neutral-50 transition">Login</a>
+                <a href="/register" class="px-3 py-2 rounded-lg bg-neutral-200 text-neutral-900 text-sm text-center hover:opacity-90 transition">Register</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="min-h-screen bg-[#0B0D10] pt-24 pb-16">
+    <div class="max-w-3xl mx-auto px-6">
+        <h1 class="text-2xl font-bold mb-6">Upload Project</h1>
+        <form action="/projects/create" method="POST" enctype="multipart/form-data" class="rounded-xl bg-neutral-900 border-white/10 border border-solid p-6 space-y-6">
+
+            <section>
+                <div class="mb-6">
+                    <h2 class="text-lg font-semibold">Basic Information</h2>
+                    <p class="text-[#a1a1a1] text-sm mt-1">Tell buyers what your project is about.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="md:col-span-2">
+                        <label class="block text-[#a1a1a1] text-sm mb-1">Project Title</label>
+                        <input type="text" name="title" required placeholder="e.g. AI Resume Builder" class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] transition">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-[#a1a1a1] text-sm mb-1">Short Description</label>
+                        <textarea name="shortDescription" rows="3" placeholder="Briefly describe your project..." class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] transition resize-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-[#a1a1a1] text-sm mb-1">Category</label>
+                        <select name="category" class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 outline-none focus:border-[oklch(0.55_0.19_255)]">
+                            <option value="AI / Machine Learning">AI / Machine Learning</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Mobile App">Mobile App</option>
+                            <option value="SaaS">SaaS</option>
+                            <option value="E-Commerce">E-Commerce</option>
+                            <option value="Developer Tools">Developer Tools</option>
+                            <option value="Data & Analytics">Data & Analytics</option>
+                            <option value="Automation">Automation</option>
+                            <option value="Games">Games</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-[#a1a1a1] text-sm mb-1">Tech Stack</label>
+                        <input type="text" name="techStack" placeholder="React, Node.js, Express, MongoDB..." class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)]">
+                        <p class="text-xs text-neutral-500 mt-1">Separate technologies with commas.</p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-[#a1a1a1] text-sm mb-1">Tags</label>
+                        <input type="text" name="tags" placeholder="AI, MERN, Authentication, Dashboard" class="w-full px-4 py-2.5 rounded-lg bg-neutral-800 border-white/10 border border-solid text-sm text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)]">
+                        <p class="text-xs text-neutral-500 mt-1">These tags help users find your project faster.</p>
+                    </div>
+                </div>
+            </section>
+
+        </form>
+    </div>
+</div>
+
+<footer class="border-white/10 border-t border-solid">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-8 py-5 flex flex-col sm:flex-row justify-between items-center gap-4 text-[#a1a1a1] text-xs leading-4">
+        <span>&copy; 2026 RepoX &middot; Buy. Sell. Build.</span>
+        <div class="flex items-center gap-6">
+            <a href="#" class="hover:text-neutral-50 transition">Documentation</a>
+            <a href="#" class="hover:text-neutral-50 transition">Seller guidelines</a>
+            <a href="#" class="hover:text-neutral-50 transition">Privacy</a>
+            <a href="#" class="hover:text-neutral-50 transition">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/javascripts/navbar.js"></script>
+</body>
+</html>
