@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+    <link rel="stylesheet" href="/output.css">
+    <title>React Admin Dashboard · RepoX</title>
+    <meta name="description" content="A production-ready admin dashboard built with React, Vite, and Tailwind CSS.">
+</head>
+
+<body class="bg-[#0B0D10] text-neutral-50 min-h-screen">
+
+<header class="sticky z-50 bg-neutral-900 border-b border-white/10 border-t-0 border-r-0 border-l-0 border-solid top-0 w-full">
+    <div class="flex px-8 h-16 justify-between items-center gap-6 max-w-[1400px] mx-auto">
+        <div class="flex items-center gap-8">
+            <a href="/" class="flex items-center gap-2">
+                <div class="size-8 bg-neutral-200 rounded-lg flex justify-center items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-900"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+                </div>
+                <span class="font-bold text-lg leading-7 tracking-tight">RepoX</span>
+            </a>
+            <nav class="hidden lg:flex items-center gap-1">
+                <a href="/marketplace" class="font-medium rounded-md text-[#a1a1a1] text-sm leading-5 px-3 py-1.5 flex items-center gap-2 hover:text-neutral-50 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                    Explore
+                </a>
+                <a href="/categories" class="font-medium rounded-md text-[#a1a1a1] text-sm leading-5 px-3 py-1.5 flex items-center gap-2 hover:text-neutral-50 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+                    Categories
+                </a>
+                <a href="/marketplace?sort=popular" class="font-medium rounded-md text-[#a1a1a1] text-sm leading-5 px-3 py-1.5 flex items-center gap-2 hover:text-neutral-50 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                    Trending
+                </a>
+                <a href="/marketplace?sort=newest" class="font-medium rounded-md text-[#a1a1a1] text-sm leading-5 px-3 py-1.5 flex items-center gap-2 hover:text-neutral-50 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    New Releases
+                </a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-2">
+            <form action="/marketplace" method="GET" class="relative hidden lg:flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a1a1a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-3"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="text" name="search" placeholder="Search projects..." class="rounded-lg bg-neutral-800 text-sm leading-5 border-0 border-white/10 border-solid pl-9 w-56 h-9 text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] transition">
+            </form>
+            <a href="/wishlist" class="relative size-9 rounded-lg text-[#a1a1a1] flex justify-center items-center hover:text-neutral-50 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </a>
+            <a href="/cart" class="relative size-9 rounded-lg text-[#a1a1a1] flex justify-center items-center hover:text-neutral-50 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            </a>
+            <a href="/upload" class="bg-neutral-200 text-neutral-900 font-medium rounded-lg text-sm leading-5 px-4 gap-1.5 h-9 flex items-center hover:opacity-90 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                Sell
+            </a>
+            <a href="/login" class="size-9 border-white/10 border border-solid rounded-lg overflow-hidden flex justify-center items-center bg-neutral-800 text-sm leading-5 font-medium text-[#a1a1a1] hover:text-neutral-50 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </a>
+            <button id="menuBtn" class="lg:hidden size-9 rounded-lg text-[#a1a1a1] flex justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+    </div>
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-white/10 bg-[#0B0D10]">
+        <div class="flex flex-col p-4 gap-1">
+            <a href="/marketplace" class="px-3 py-2 rounded-lg text-[#a1a1a1] text-sm hover:bg-neutral-800 hover:text-neutral-50 transition">Explore</a>
+            <a href="/categories" class="px-3 py-2 rounded-lg text-[#a1a1a1] text-sm hover:bg-neutral-800 hover:text-neutral-50 transition">Categories</a>
+            <a href="/marketplace?sort=popular" class="px-3 py-2 rounded-lg text-[#a1a1a1] text-sm hover:bg-neutral-800 hover:text-neutral-50 transition">Trending</a>
+            <a href="/marketplace?sort=newest" class="px-3 py-2 rounded-lg text-[#a1a1a1] text-sm hover:bg-neutral-800 hover:text-neutral-50 transition">New Releases</a>
+            <form action="/marketplace" method="GET" class="mt-2 flex gap-2">
+                <input type="text" name="search" placeholder="Search..." class="flex-1 rounded-lg bg-neutral-800 text-sm border-white/10 border border-solid px-3 py-2 text-neutral-50 placeholder-[#a1a1a1] outline-none">
+            </form>
+            <div class="border-t border-white/10 mt-2 pt-2 flex flex-col gap-1">
+                <a href="/login" class="px-3 py-2 rounded-lg text-[#a1a1a1] text-sm hover:bg-neutral-800 hover:text-neutral-50 transition">Login</a>
+                <a href="/register" class="px-3 py-2 rounded-lg bg-neutral-200 text-neutral-900 text-sm text-center hover:opacity-90 transition">Register</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="bg-[#0B0D10] min-h-screen">
+    <div class="max-w-7xl mx-auto px-6 py-8 grid lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2">
+            <div class="text-[#a1a1a1] text-sm leading-5 flex mb-6 items-center gap-2">
+                <a href="/marketplace" class="hover:text-neutral-50 transition">Explore</a>
+                <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                <a href="/marketplace?category=Web Development" class="hover:text-neutral-50 transition">Web Development</a>
+                <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                <span class="text-neutral-50">React Admin Dashboard</span>
+            </div>
+
+            <div class="mb-6">
+                <h1 class="font-semibold text-3xl leading-9 tracking-tight mb-2">React Admin Dashboard</h1>
+                <p class="max-w-2xl text-[#a1a1a1] text-sm leading-5 mb-4">A production-ready admin dashboard built with React, Vite, and Tailwind CSS. Includes authentication, theming, charts, and a fully responsive layout.</p>
+                <div class="flex mb-4 flex-wrap items-center gap-2">
+                    <span class="font-mono rounded-md bg-neutral-800 text-xs leading-4 border-white/10 border border-solid px-2.5 py-1">React</span>
+                    <span class="font-mono rounded-md bg-neutral-800 text-xs leading-4 border-white/10 border border-solid px-2.5 py-1">Vite</span>
+                    <span class="font-mono rounded-md bg-neutral-800 text-xs leading-4 border-white/10 border border-solid px-2.5 py-1">Tailwind CSS</span>
+                    <span class="font-mono rounded-md bg-neutral-800 text-xs leading-4 border-white/10 border border-solid px-2.5 py-1">Redux Toolkit</span>
+                </div>
+                <div class="text-[#a1a1a1] text-sm leading-5 flex items-center gap-3">
+                    <div class="size-6 rounded-full bg-[oklch(0.55_0.16_252)] flex items-center justify-center text-[10px] font-bold text-white">
+                        J
+                    </div>
+                    <span>by <span class="text-neutral-50">johndoe</span></span>
+                    <span class="text-white/10">|</span>
+                    <span>Published Sep 5, 2026</span>
+                </div>
+            </div>
+
+            <div class="rounded-xl bg-neutral-900 border-white/10 border border-solid mb-4 overflow-hidden">
+                <img src="/uploads/thumbnails/1782886422831-351494344.png" alt="React Admin Dashboard" class="object-cover w-full h-90" id="mainImage">
+            </div>
+            <div class="flex mb-8 gap-3">
+                <button onclick="changeImage('/uploads/thumbnails/1782886422831-351494344.png')" class="rounded-lg border-black/10 border border-solid w-24 h-16 overflow-hidden">
+                    <img src="/uploads/thumbnails/1782886422831-351494344.png" alt="Thumbnail" class="object-cover w-full h-full">
+                </button>
+                <button onclick="changeImage('/uploads/screenshots/1782886422845-154449533.png')" class="rounded-lg border-black/10 border border-solid w-24 h-16 overflow-hidden">
+                    <img src="/uploads/screenshots/1782886422845-154449533.png" alt="Thumbnail" class="object-cover w-full h-full">
+                </button>
+                <button onclick="changeImage('/uploads/screenshots/1782886422848-189333601.png')" class="rounded-lg border-black/10 border border-solid w-24 h-16 overflow-hidden">
+                    <img src="/uploads/screenshots/1782886422848-189333601.png" alt="Thumbnail" class="object-cover w-full h-full">
+                </button>
+                <button onclick="changeImage('/uploads/screenshots/1782886422854-889013157.png')" class="rounded-lg border-black/10 border border-solid w-24 h-16 overflow-hidden">
+                    <img src="/uploads/screenshots/1782886422854-889013157.png" alt="Thumbnail" class="object-cover w-full h-full">
+                </button>
+                <button onclick="changeImage('/uploads/screenshots/1782886422859-185997543.png')" class="rounded-lg border-black/10 border border-solid w-24 h-16 overflow-hidden">
+                    <img src="/uploads/screenshots/1782886422859-185997543.png" alt="Thumbnail" class="object-cover w-full h-full">
+                </button>
+            </div>
+            <script>
+            function changeImage(src) {
+                document.getElementById('mainImage').src = src;
+            }
+            </script>
+
+            <div class="w-full">
+                <div class="overflow-x-auto rounded-lg bg-neutral-900 border-white/10 border border-solid p-1 justify-start gap-1 w-full h-auto flex">
+                    <button onclick="showTab('overview')" class="tab-btn text-xs leading-4 px-3 py-1.5 rounded-md transition" data-tab="overview">Overview</button>
+                    <button onclick="showTab('features')" class="tab-btn text-xs leading-4 px-3 py-1.5 rounded-md transition" data-tab="features">Features</button>
+                    <button onclick="showTab('tech')" class="tab-btn text-xs leading-4 px-3 py-1.5 rounded-md transition" data-tab="tech">Tech Stack</button>
+                    <button onclick="showTab('requirements')" class="tab-btn text-xs leading-4 px-3 py-1.5 rounded-md transition" data-tab="requirements">Requirements</button>
+                    <button onclick="showTab('installation')" class="tab-btn text-xs leading-4 px-3 py-1.5 rounded-md transition" data-tab="installation">Installation</button>
+                    <button onclick="showTab('documentation')" class="tab-btn text-xs leading-4 px-3 py-1.5 rounded-md transition" data-tab="documentation">Documentation</button>
+                    <button onclick="showTab('changelog')" class="tab-btn text-xs leading-4 px-3 py-1.5 rounded-md transition" data-tab="changelog">Changelog</button>
+                    <button onclick="showTab('reviews')" class="tab-btn text-xs leading-4 px-3 py-1.5 rounded-md transition" data-tab="reviews">Reviews</button>
+                </div>
+
+                <div id="tab-overview" class="tab-content mt-6">
+                    <div class="space-y-4 leading-relaxed text-[#a1a1a1] text-sm leading-5">
+                        <p>Rolling admin interface for modern SaaS teams. This project includes a complete authentication flow, role-based routing, light and dark theming, a customizable dashboard with reusable chart components, and a data table built for performance. Every page is responsive out of the box and follows accessible markup patterns.</p>
+                        <p>The starter ships with environment-based configuration, API layer with interceptors, lazy-loaded routes, and a clean folder structure so you can extend it without fighting the framework.</p>
+                    </div>
+                </div>
+
+                <div id="tab-features" class="tab-content mt-6 hidden">
+                    <ul class="space-y-3 text-[#a1a1a1] text-sm leading-5">
+                        <li class="flex items-center gap-3">
+                            <svg class="size-4 text-[oklch(0.7_0.14_160)] shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            Complete authentication with JWT and refresh tokens
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="size-4 text-[oklch(0.7_0.14_160)] shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            Role-based access control for admin, editor, and viewer
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="size-4 text-[oklch(0.7_0.14_160)] shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            Light and dark theme with persistent preferences
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="size-4 text-[oklch(0.7_0.14_160)] shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            Lazy-loaded routes and code-split bundles
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="size-4 text-[oklch(0.7_0.14_160)] shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            Reusable chart and data-table components
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="tab-tech" class="tab-content mt-6 hidden">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="font-mono rounded-md bg-neutral-800 text-xs leading-4 border-white/10 border border-solid px-2.5 py-1">React</span>
+                        <span class="font-mono rounded-md bg-neutral-800 text-xs leading-4 border-white/10 border border-solid px-2.5 py-1">Vite</span>
+                        <span class="font-mono rounded-md bg-neutral-800 text-xs leading-4 border-white/10 border border-solid px-2.5 py-1">Tailwind CSS</span>
+                        <span class="font-mono rounded-md bg-neutral-800 text-xs leading-4 border-white/10 border border-solid px-2.5 py-1">Redux Toolkit</span>
+                    </div>
+                </div>
+
+                <div id="tab-requirements" class="tab-content mt-6 hidden">
+                    <ul class="space-y-2 font-mono text-[#a1a1a1] text-sm leading-5">
+                        <li>Node.js 18 or higher</li>
+                        <li>npm or yarn package manager</li>
+                        <li>Modern browser with ES2020 support</li>
+                    </ul>
+                </div>
+
+                <div id="tab-installation" class="tab-content mt-6 hidden">
+                    <div class="bg-[oklch(0.17_0_0)] font-mono rounded-lg text-[#a1a1a1] text-sm leading-5 border-white/10 border border-solid p-4">
+                        <p class="text-neutral-50">$ git clone https://github.com/johndoe/react-admin-dashboard</p>
+                        <p class="text-neutral-50">$ cd react-admin-dashboard</p>
+                        <p class="text-neutral-50">$ npm install</p>
+                        <p class="text-neutral-50">$ cp .env.example .env</p>
+                        <p class="text-neutral-50">$ npm run dev</p>
+                    </div>
+                </div>
+
+                <div id="tab-documentation" class="tab-content mt-6 hidden">
+                    <p class="leading-relaxed text-[#a1a1a1] text-sm leading-5">Full documentation covering setup, environment configuration, deployment guides, and API references is included with your purchase.</p>
+                </div>
+
+                <div id="tab-changelog" class="tab-content mt-6 hidden">
+                    <div class="space-y-4 text-sm leading-5">
+                        <div class="flex gap-4">
+                            <span class="font-mono text-[#a1a1a1]">v1.2.0</span>
+                            <p class="text-[#a1a1a1]">Added role-based access control and improved data table performance</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="font-mono text-[#a1a1a1]">v1.1.0</span>
+                            <p class="text-[#a1a1a1]">Introduced dark mode and environment-based configuration</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="font-mono text-[#a1a1a1]">v1.0.0</span>
+                            <p class="text-[#a1a1a1]">Initial release with authentication and dashboard layout</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-reviews" class="tab-content mt-6 hidden">
+                    <div class="space-y-4">
+                        <div class="rounded-lg border-white/10 border border-solid p-4 bg-neutral-900">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="size-8 rounded-full bg-neutral-800 flex items-center justify-center text-xs font-bold">
+                                    S
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium">Sarah Chen</p>
+                                    <p class="text-[#a1a1a1] text-xs">Aug 28, 2026</p>
+                                </div>
+                                <div class="ml-auto text-yellow-400 text-sm">★★★★★</div>
+                            </div>
+                            <p class="text-[#a1a1a1] text-sm leading-5">Excellent structure and really clean code. The theming system saved me days of work.</p>
+                        </div>
+                        <div class="rounded-lg border-white/10 border border-solid p-4 bg-neutral-900">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="size-8 rounded-full bg-neutral-800 flex items-center justify-center text-xs font-bold">
+                                    M
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium">Miguel Torres</p>
+                                    <p class="text-[#a1a1a1] text-xs">Aug 19, 2026</p>
+                                </div>
+                                <div class="ml-auto text-yellow-400 text-sm">★★★★☆</div>
+                            </div>
+                            <p class="text-[#a1a1a1] text-sm leading-5">Really solid foundation. Would love more chart variants, but works great out of the box.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+            .tab-btn {
+                color: #a1a1a1;
+            }
+            .tab-btn:hover {
+                color: #fafafa;
+            }
+            .tab-btn.active {
+                background-color: #262626;
+                color: #fafafa;
+            }
+            </style>
+
+            <script>
+            function showTab(tabName) {
+                document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+                document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+
+                document.getElementById('tab-' + tabName).classList.remove('hidden');
+                document.querySelector('[data-tab="' + tabName + '"]').classList.add('active');
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                showTab('overview');
+            });
+            </script>
+        </div>
+        <div>
+            <div class="sticky flex top-20 flex-col gap-6">
+                <div class="bg-neutral-900 border-white/10 border-0 border-solid rounded-xl p-6 gap-4 flex flex-col">
+                    <div class="p-0 gap-1 flex flex-col">
+                        <span class="font-semibold text-3xl leading-9 tracking-tight">₹1499</span>
+                        <span class="text-[#a1a1a1] text-xs leading-4">One-time purchase · Lifetime updates</span>
+                    </div>
+                    <div class="p-0 gap-4">
+                        <div class="flex flex-col gap-2">
+                            <span class="font-medium text-sm leading-5">What's included</span>
+                            <ul class="text-[#a1a1a1] text-sm leading-5 flex flex-col gap-2">
+                                <li class="flex items-center gap-2">
+                                    <svg class="size-4 text-[oklch(0.7_0.14_160)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                    Source code
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="size-4 text-[oklch(0.7_0.14_160)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                    Documentation
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="size-4 text-[oklch(0.7_0.14_160)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                    Installation instructions
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="size-4 text-[oklch(0.7_0.14_160)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                    Updates
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg class="size-4 text-[oklch(0.7_0.14_160)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                    License information
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-0 flex-col gap-2 flex">
+                        <button class="bg-[oklch(0.55_0.16_252)] text-white gap-2 w-full flex items-center justify-center py-3 rounded-lg font-medium text-sm hover:opacity-90 transition">
+                            <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                            Buy Now
+                        </button>
+                        <button class="border-white/10 border-0 border-solid gap-2 w-full flex items-center justify-center py-3 rounded-lg text-sm text-[#a1a1a1] hover:text-neutral-50 transition">
+                            <svg class="size-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-neutral-900 border-white/10 border-0 border-solid rounded-xl p-6 gap-4 flex flex-col">
+                    <div class="p-0 gap-0">
+                        <span class="font-medium text-sm leading-5">Seller</span>
+                    </div>
+                    <div class="p-0 gap-4">
+                        <div class="flex items-center gap-3">
+                            <div class="size-11 rounded-full bg-[oklch(0.55_0.16_252)] flex items-center justify-center text-sm font-bold text-white">
+                                J
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="font-medium text-sm leading-5">johndoe</span>
+                                <a href="/users/johndoe" class="text-[oklch(0.6_0.14_252)] text-xs leading-4 hover:underline">Developer profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="border-white/10 border-t border-solid">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-8 py-5 flex flex-col sm:flex-row justify-between items-center gap-4 text-[#a1a1a1] text-xs leading-4">
+        <span>&copy; 2026 RepoX &middot; Buy. Sell. Build.</span>
+        <div class="flex items-center gap-6">
+            <a href="#" class="hover:text-neutral-50 transition">Documentation</a>
+            <a href="#" class="hover:text-neutral-50 transition">Seller guidelines</a>
+            <a href="#" class="hover:text-neutral-50 transition">Privacy</a>
+            <a href="#" class="hover:text-neutral-50 transition">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/javascripts/navbar.js"></script>
+</body>
+</html>
