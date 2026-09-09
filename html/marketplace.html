@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+    <link rel="stylesheet" href="/output.css">
+    <title>Marketplace · RepoX</title>
+    <meta name="description" content="Browse and buy code repositories, templates, and developer tools on RepoX.">
+</head>
+
+<body class="bg-[#0B0D10] text-neutral-50 min-h-screen">
+
+<header class="sticky z-50 bg-neutral-900 border-b border-white/10 border-t-0 border-r-0 border-l-0 border-solid top-0 w-full">
+    <div class="flex px-8 h-16 justify-between items-center gap-6 max-w-[1400px] mx-auto">
+        <div class="flex items-center gap-8">
+            <a href="/" class="flex items-center gap-2">
+                <div class="size-8 bg-neutral-200 rounded-lg flex justify-center items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-900"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+                </div>
+                <span class="font-bold text-lg leading-7 tracking-tight">RepoX</span>
+            </a>
+            <nav class="hidden lg:flex items-center gap-1">
+                <a href="/marketplace" class="font-medium rounded-md text-[#a1a1a1] text-sm leading-5 px-3 py-1.5 flex items-center gap-2 hover:text-neutral-50 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                    Explore
+                </a>
+                <a href="/categories" class="font-medium rounded-md text-[#a1a1a1] text-sm leading-5 px-3 py-1.5 flex items-center gap-2 hover:text-neutral-50 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+                    Categories
+                </a>
+                <a href="/marketplace?sort=popular" class="font-medium rounded-md text-[#a1a1a1] text-sm leading-5 px-3 py-1.5 flex items-center gap-2 hover:text-neutral-50 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                    Trending
+                </a>
+                <a href="/marketplace?sort=newest" class="font-medium rounded-md text-[#a1a1a1] text-sm leading-5 px-3 py-1.5 flex items-center gap-2 hover:text-neutral-50 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    New Releases
+                </a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-2">
+            <form action="/marketplace" method="GET" class="relative hidden lg:flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a1a1a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-3"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="text" name="search" placeholder="Search projects..." class="rounded-lg bg-neutral-800 text-sm leading-5 border-0 border-white/10 border-solid pl-9 w-56 h-9 text-neutral-50 placeholder-[#a1a1a1] outline-none focus:border-[oklch(0.55_0.19_255)] transition">
+            </form>
+            <a href="/wishlist" class="relative size-9 rounded-lg text-[#a1a1a1] flex justify-center items-center hover:text-neutral-50 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </a>
+            <a href="/cart" class="relative size-9 rounded-lg text-[#a1a1a1] flex justify-center items-center hover:text-neutral-50 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            </a>
+            <a href="/upload" class="bg-neutral-200 text-neutral-900 font-medium rounded-lg text-sm leading-5 px-4 gap-1.5 h-9 flex items-center hover:opacity-90 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                Sell
+            </a>
+            <a href="/login" class="size-9 border-white/10 border border-solid rounded-lg overflow-hidden flex justify-center items-center bg-neutral-800 text-sm leading-5 font-medium text-[#a1a1a1] hover:text-neutral-50 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </a>
+            <button id="menuBtn" class="lg:hidden size-9 rounded-lg text-[#a1a1a1] flex justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+    </div>
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-white/10 bg-[#0B0D10]">
+        <div class="flex flex-col p-4 gap-1">
+            <a href="/marketplace" class="px-3 py-2 rounded-lg text-[#a1a1a1] text-sm hover:bg-neutral-800 hover:text-neutral-50 transition">Explore</a>
+            <a href="/categories" class="px-3 py-2 rounded-lg text-[#a1a1a1] text-sm hover:bg-neutral-800 hover:text-neutral-50 transition">Categories</a>
+            <a href="/marketplace?sort=popular" class="px-3 py-2 rounded-lg text-[#a1a1a1] text-sm hover:bg-neutral-800 hover:text-neutral-50 transition">Trending</a>
+            <a href="/marketplace?sort=newest" class="px-3 py-2 rounded-lg text-[#a1a1a1] text-sm hover:bg-neutral-800 hover:text-neutral-50 transition">New Releases</a>
+            <form action="/marketplace" method="GET" class="mt-2 flex gap-2">
+                <input type="text" name="search" placeholder="Search..." class="flex-1 rounded-lg bg-neutral-800 text-sm border-white/10 border border-solid px-3 py-2 text-neutral-50 placeholder-[#a1a1a1] outline-none">
+            </form>
+            <div class="border-t border-white/10 mt-2 pt-2 flex flex-col gap-1">
+                <a href="/login" class="px-3 py-2 rounded-lg text-[#a1a1a1] text-sm hover:bg-neutral-800 hover:text-neutral-50 transition">Login</a>
+                <a href="/register" class="px-3 py-2 rounded-lg bg-neutral-200 text-neutral-900 text-sm text-center hover:opacity-90 transition">Register</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="px-8 py-6">
+    <div class="mb-5">
+        <h1 class="font-bold text-2xl leading-8 tracking-tight mb-1">Explore Projects</h1>
+        <p class="text-[#a1a1a1] text-sm leading-5">Discover production-ready software, templates and developer tools.</p>
+    </div>
+    <form action="/marketplace" method="GET" class="relative mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a1a1a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="top-1/2 -translate-y-1/2 absolute left-4"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" name="search" value="" placeholder="Search projects, templates, tools..." class="rounded-lg bg-neutral-900 text-base leading-6 border-white/10 border-0 border-solid pl-12 w-full h-12 text-neutral-50 placeholder-[#a1a1a1] outline-none">
+    </form>
+    <div class="flex mb-6 justify-between items-center">
+        <p class="text-[#a1a1a1] text-sm leading-5">Showing <span class="font-semibold text-neutral-50">6</span> results</p>
+        <div class="flex items-center gap-2">
+            <span class="text-[#a1a1a1] text-sm leading-5">Sort by</span>
+            <select onchange="window.location.href=this.value" class="rounded-md bg-neutral-900 text-sm leading-5 border-white/10 border-0 border-solid w-48 h-9 text-neutral-50 px-3 outline-none cursor-pointer">
+                <option value="/marketplace?sort=popular" selected>Popular</option>
+                <option value="/marketplace?sort=newest">Newest</option>
+                <option value="/marketplace?sort=low">Price: Low to High</option>
+                <option value="/marketplace?sort=high">Price: High to Low</option>
+            </select>
+        </div>
+    </div>
+    <div class="flex gap-6">
+        <aside class="shrink-0 w-64">
+            <div class="rounded-lg bg-neutral-900 border-white/10 border border-solid">
+                <div class="border-white/10 border-t-0 border-r-0 border-b border-l-0 border-solid flex px-4 py-3 justify-between items-center">
+                    <span class="font-semibold text-sm leading-5 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a1a1a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg>
+                        Filters
+                    </span>
+                    <a href="/marketplace" class="text-[oklch(0.65_0.16_255)] text-xs leading-4 hover:underline">Clear all</a>
+                </div>
+                <div class="border-white/10 border-t-0 border-r-0 border-b border-l-0 border-solid p-4">
+                    <h3 class="font-semibold uppercase text-[#a1a1a1] text-xs leading-4 tracking-wide mb-3">Category</h3>
+                    <div class="flex flex-col gap-2.5">
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" name="category" value="AI" class="accent-[oklch(0.55_0.15_255)] size-3.5"> AI
+                        </label>
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" name="category" value="Web Development" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Web
+                        </label>
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" name="category" value="Mobile Apps" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Mobile
+                        </label>
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" name="category" value="Backend" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Backend
+                        </label>
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" name="category" value="SaaS" class="accent-[oklch(0.55_0.15_255)] size-3.5"> SaaS
+                        </label>
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" name="category" value="Developer Tools" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Developer Tools
+                        </label>
+                    </div>
+                </div>
+                <div class="border-white/10 border-t-0 border-r-0 border-b border-l-0 border-solid p-4">
+                    <h3 class="font-semibold uppercase text-[#a1a1a1] text-xs leading-4 tracking-wide mb-3">Technology</h3>
+                    <div class="flex flex-col gap-2.5">
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" name="tech" value="React" class="accent-[oklch(0.55_0.15_255)] size-3.5"> React
+                        </label>
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" name="tech" value="Node.js" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Node.js
+                        </label>
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" name="tech" value="Python" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Python
+                        </label>
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" name="tech" value="Flutter" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Flutter
+                        </label>
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" name="tech" value="Firebase" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Firebase
+                        </label>
+                    </div>
+                </div>
+                <div class="border-white/10 border-t-0 border-r-0 border-b border-l-0 border-solid p-4">
+                    <h3 class="font-semibold uppercase text-[#a1a1a1] text-xs leading-4 tracking-wide mb-3">Price</h3>
+                    <div class="flex flex-col gap-2.5">
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="radio" name="price" value="free" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Free
+                        </label>
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="radio" name="price" value="under500" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Under ₹500
+                        </label>
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="radio" name="price" value="500to1000" class="accent-[oklch(0.55_0.15_255)] size-3.5"> ₹500–₹1,000
+                        </label>
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="radio" name="price" value="1000to2500" class="accent-[oklch(0.55_0.15_255)] size-3.5"> ₹1,000–₹2,500
+                        </label>
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="radio" name="price" value="2500plus" class="accent-[oklch(0.55_0.15_255)] size-3.5"> ₹2,500+
+                        </label>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold uppercase text-[#a1a1a1] text-xs leading-4 tracking-wide mb-3">License</h3>
+                    <div class="flex flex-col gap-2.5">
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" name="license" value="Personal" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Personal
+                        </label>
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" name="license" value="Commercial" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Commercial
+                        </label>
+                        <label class="text-sm leading-5 flex items-center gap-2.5 cursor-pointer">
+                            <input type="checkbox" name="license" value="Extended" class="accent-[oklch(0.55_0.15_255)] size-3.5"> Extended
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <section class="min-w-0 flex-1">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="transition-colors rounded-lg bg-neutral-900 border-white/10 border-0 border-solid p-0 gap-0 overflow-hidden flex flex-col">
+                    <div class="relative aspect-video bg-neutral-800 overflow-hidden">
+                        <img alt="React Admin Dashboard" class="size-full object-cover" src="/uploads/thumbnails/1782886422831-351494344.png">
+                        <button class="size-8 backdrop-blur rounded-md bg-neutral-900/80 border-white/10 border border-solid flex absolute right-2 top-2 justify-center items-center text-neutral-50 hover:text-red-400 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        </button>
+                    </div>
+                    <div class="flex p-3 flex-col gap-2 flex-1">
+                        <div class="flex justify-between items-start gap-2">
+                            <a href="/project/react-admin-dashboard" class="leading-tight font-semibold text-sm leading-5 hover:text-[oklch(0.65_0.16_255)] transition">React Admin Dashboard</a>
+                        </div>
+                        <p class="line-clamp-2 text-[#a1a1a1] text-xs leading-4">A production-ready admin dashboard built with React, Vite, and Tailwind CSS.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="font-medium rounded-sm bg-neutral-800 text-[#a1a1a1] text-[10px] border-white/10 border-0 border-solid px-1.5 py-0">React</span>
+                            <span class="font-medium rounded-sm bg-neutral-800 text-[#a1a1a1] text-[10px] border-white/10 border-0 border-solid px-1.5 py-0">Vite</span>
+                            <span class="font-medium rounded-sm bg-neutral-800 text-[#a1a1a1] text-[10px] border-white/10 border-0 border-solid px-1.5 py-0">Tailwind</span>
+                        </div>
+                        <div class="text-[#a1a1a1] text-xs leading-4 flex items-center gap-1.5">
+                            <span class="size-4 rounded-full bg-neutral-800 flex justify-center items-center text-[8px]">J</span>
+                            by johndoe
+                        </div>
+                        <div class="border-white/10 border-t border-r-0 border-b-0 border-l-0 border-solid flex mt-1 pt-2 justify-between items-center">
+                            <span class="font-bold text-base leading-6">₹1499</span>
+                            <button class="font-medium rounded-md bg-neutral-800 text-neutral-50 text-xs leading-4 px-2.5 gap-1 h-8 flex items-center hover:bg-neutral-700 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                                Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="transition-colors rounded-lg bg-neutral-900 border-white/10 border-0 border-solid p-0 gap-0 overflow-hidden flex flex-col">
+                    <div class="relative aspect-video bg-neutral-800 overflow-hidden">
+                        <img alt="AI Resume Builder" class="size-full object-cover" src="/uploads/thumbnails/1782968903990-471984822.png">
+                        <button class="size-8 backdrop-blur rounded-md bg-neutral-900/80 border-white/10 border border-solid flex absolute right-2 top-2 justify-center items-center text-neutral-50 hover:text-red-400 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        </button>
+                    </div>
+                    <div class="flex p-3 flex-col gap-2 flex-1">
+                        <div class="flex justify-between items-start gap-2">
+                            <a href="/project/ai-resume-builder" class="leading-tight font-semibold text-sm leading-5 hover:text-[oklch(0.65_0.16_255)] transition">AI Resume Builder</a>
+                        </div>
+                        <p class="line-clamp-2 text-[#a1a1a1] text-xs leading-4">Generate tailored resumes and cover letters powered by AI.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="font-medium rounded-sm bg-neutral-800 text-[#a1a1a1] text-[10px] border-white/10 border-0 border-solid px-1.5 py-0">Python</span>
+                            <span class="font-medium rounded-sm bg-neutral-800 text-[#a1a1a1] text-[10px] border-white/10 border-0 border-solid px-1.5 py-0">FastAPI</span>
+                        </div>
+                        <div class="text-[#a1a1a1] text-xs leading-4 flex items-center gap-1.5">
+                            <span class="size-4 rounded-full bg-neutral-800 flex justify-center items-center text-[8px]">S</span>
+                            by sarahdev
+                        </div>
+                        <div class="border-white/10 border-t border-r-0 border-b-0 border-l-0 border-solid flex mt-1 pt-2 justify-between items-center">
+                            <span class="font-bold text-base leading-6">₹799</span>
+                            <button class="font-medium rounded-md bg-neutral-800 text-neutral-50 text-xs leading-4 px-2.5 gap-1 h-8 flex items-center hover:bg-neutral-700 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                                Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="transition-colors rounded-lg bg-neutral-900 border-white/10 border-0 border-solid p-0 gap-0 overflow-hidden flex flex-col">
+                    <div class="relative aspect-video bg-neutral-800 overflow-hidden">
+                        <img alt="Flutter E-Commerce App" class="size-full object-cover" src="/uploads/thumbnails/1782969935863-823790285.png">
+                        <button class="size-8 backdrop-blur rounded-md bg-neutral-900/80 border-white/10 border border-solid flex absolute right-2 top-2 justify-center items-center text-neutral-50 hover:text-red-400 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        </button>
+                    </div>
+                    <div class="flex p-3 flex-col gap-2 flex-1">
+                        <div class="flex justify-between items-start gap-2">
+                            <a href="/project/flutter-ecommerce-app" class="leading-tight font-semibold text-sm leading-5 hover:text-[oklch(0.65_0.16_255)] transition">Flutter E-Commerce App</a>
+                        </div>
+                        <p class="line-clamp-2 text-[#a1a1a1] text-xs leading-4">Cross-platform storefront with cart, checkout, and Razorpay integration.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="font-medium rounded-sm bg-neutral-800 text-[#a1a1a1] text-[10px] border-white/10 border-0 border-solid px-1.5 py-0">Flutter</span>
+                            <span class="font-medium rounded-sm bg-neutral-800 text-[#a1a1a1] text-[10px] border-white/10 border-0 border-solid px-1.5 py-0">Firebase</span>
+                        </div>
+                        <div class="text-[#a1a1a1] text-xs leading-4 flex items-center gap-1.5">
+                            <span class="size-4 rounded-full bg-neutral-800 flex justify-center items-center text-[8px]">M</span>
+                            by miguelcodes
+                        </div>
+                        <div class="border-white/10 border-t border-r-0 border-b-0 border-l-0 border-solid flex mt-1 pt-2 justify-between items-center">
+                            <span class="font-bold text-base leading-6">₹1999</span>
+                            <button class="font-medium rounded-md bg-neutral-800 text-neutral-50 text-xs leading-4 px-2.5 gap-1 h-8 flex items-center hover:bg-neutral-700 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                                Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="transition-colors rounded-lg bg-neutral-900 border-white/10 border-0 border-solid p-0 gap-0 overflow-hidden flex flex-col">
+                    <div class="relative aspect-video bg-neutral-800 overflow-hidden">
+                        <img alt="Node.js API Boilerplate" class="size-full object-cover" src="/uploads/thumbnails/1782970018143-11991179.png">
+                        <button class="size-8 backdrop-blur rounded-md bg-neutral-900/80 border-white/10 border border-solid flex absolute right-2 top-2 justify-center items-center text-neutral-50 hover:text-red-400 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        </button>
+                    </div>
+                    <div class="flex p-3 flex-col gap-2 flex-1">
+                        <div class="flex justify-between items-start gap-2">
+                            <a href="/project/node-api-boilerplate" class="leading-tight font-semibold text-sm leading-5 hover:text-[oklch(0.65_0.16_255)] transition">Node.js API Boilerplate</a>
+                        </div>
+                        <p class="line-clamp-2 text-[#a1a1a1] text-xs leading-4">Production API starter with auth, rate limiting, and structured logging.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="font-medium rounded-sm bg-neutral-800 text-[#a1a1a1] text-[10px] border-white/10 border-0 border-solid px-1.5 py-0">Node.js</span>
+                            <span class="font-medium rounded-sm bg-neutral-800 text-[#a1a1a1] text-[10px] border-white/10 border-0 border-solid px-1.5 py-0">Express</span>
+                        </div>
+                        <div class="text-[#a1a1a1] text-xs leading-4 flex items-center gap-1.5">
+                            <span class="size-4 rounded-full bg-neutral-800 flex justify-center items-center text-[8px]">J</span>
+                            by johndoe
+                        </div>
+                        <div class="border-white/10 border-t border-r-0 border-b-0 border-l-0 border-solid flex mt-1 pt-2 justify-between items-center">
+                            <span class="font-bold text-base leading-6">Free</span>
+                            <button class="font-medium rounded-md bg-neutral-800 text-neutral-50 text-xs leading-4 px-2.5 gap-1 h-8 flex items-center hover:bg-neutral-700 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                                Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="transition-colors rounded-lg bg-neutral-900 border-white/10 border-0 border-solid p-0 gap-0 overflow-hidden flex flex-col">
+                    <div class="relative aspect-video bg-neutral-800 overflow-hidden">
+                        <img alt="SaaS Subscription Starter" class="size-full object-cover" src="/uploads/thumbnails/1782970219356-7825926.png">
+                        <button class="size-8 backdrop-blur rounded-md bg-neutral-900/80 border-white/10 border border-solid flex absolute right-2 top-2 justify-center items-center text-neutral-50 hover:text-red-400 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        </button>
+                    </div>
+                    <div class="flex p-3 flex-col gap-2 flex-1">
+                        <div class="flex justify-between items-start gap-2">
+                            <a href="/project/saas-subscription-starter" class="leading-tight font-semibold text-sm leading-5 hover:text-[oklch(0.65_0.16_255)] transition">SaaS Subscription Starter</a>
+                        </div>
+                        <p class="line-clamp-2 text-[#a1a1a1] text-xs leading-4">Multi-tenant subscription platform with billing and teams.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="font-medium rounded-sm bg-neutral-800 text-[#a1a1a1] text-[10px] border-white/10 border-0 border-solid px-1.5 py-0">React</span>
+                            <span class="font-medium rounded-sm bg-neutral-800 text-[#a1a1a1] text-[10px] border-white/10 border-0 border-solid px-1.5 py-0">Stripe</span>
+                        </div>
+                        <div class="text-[#a1a1a1] text-xs leading-4 flex items-center gap-1.5">
+                            <span class="size-4 rounded-full bg-neutral-800 flex justify-center items-center text-[8px]">A</span>
+                            by ariateam
+                        </div>
+                        <div class="border-white/10 border-t border-r-0 border-b-0 border-l-0 border-solid flex mt-1 pt-2 justify-between items-center">
+                            <span class="font-bold text-base leading-6">₹2499</span>
+                            <button class="font-medium rounded-md bg-neutral-800 text-neutral-50 text-xs leading-4 px-2.5 gap-1 h-8 flex items-center hover:bg-neutral-700 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                                Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="transition-colors rounded-lg bg-neutral-900 border-white/10 border-0 border-solid p-0 gap-0 overflow-hidden flex flex-col">
+                    <div class="relative aspect-video bg-neutral-800 overflow-hidden">
+                        <img alt="Dev Tool CLI" class="size-full object-cover" src="/uploads/thumbnails/1782972972303-95866168.png">
+                        <button class="size-8 backdrop-blur rounded-md bg-neutral-900/80 border-white/10 border border-solid flex absolute right-2 top-2 justify-center items-center text-neutral-50 hover:text-red-400 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        </button>
+                    </div>
+                    <div class="flex p-3 flex-col gap-2 flex-1">
+                        <div class="flex justify-between items-start gap-2">
+                            <a href="/project/dev-tool-cli" class="leading-tight font-semibold text-sm leading-5 hover:text-[oklch(0.65_0.16_255)] transition">Dev Tool CLI</a>
+                        </div>
+                        <p class="line-clamp-2 text-[#a1a1a1] text-xs leading-4">Scaffold projects and generate boilerplate from your terminal.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="font-medium rounded-sm bg-neutral-800 text-[#a1a1a1] text-[10px] border-white/10 border-0 border-solid px-1.5 py-0">TypeScript</span>
+                            <span class="font-medium rounded-sm bg-neutral-800 text-[#a1a1a1] text-[10px] border-white/10 border-0 border-solid px-1.5 py-0">Node.js</span>
+                        </div>
+                        <div class="text-[#a1a1a1] text-xs leading-4 flex items-center gap-1.5">
+                            <span class="size-4 rounded-full bg-neutral-800 flex justify-center items-center text-[8px]">K</span>
+                            by kaicl
+                        </div>
+                        <div class="border-white/10 border-t border-r-0 border-b-0 border-l-0 border-solid flex mt-1 pt-2 justify-between items-center">
+                            <span class="font-bold text-base leading-6">₹599</span>
+                            <button class="font-medium rounded-md bg-neutral-800 text-neutral-50 text-xs leading-4 px-2.5 gap-1 h-8 flex items-center hover:bg-neutral-700 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                                Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex mt-6 justify-center items-center gap-2">
+                <a href="/marketplace?page=1&search=&category=&sort=popular" class="size-9 bg-[oklch(0.55_0.15_255)] text-white font-medium rounded-md text-sm leading-5 flex justify-center items-center hover:opacity-90 transition">1</a>
+                <a href="/marketplace?page=2&search=&category=&sort=popular" class="size-9 bg-neutral-900 text-[#a1a1a1] border-white/10 border border-solid font-medium rounded-md text-sm leading-5 flex justify-center items-center hover:opacity-90 transition">2</a>
+                <a href="/marketplace?page=2&search=&category=&sort=popular" class="rounded-md bg-neutral-900 text-[#a1a1a1] text-sm leading-5 border-white/10 border border-solid flex px-3 items-center gap-1 h-9 hover:text-neutral-50 transition">
+                    Next
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer class="border-white/10 border-t border-solid">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-8 py-5 flex flex-col sm:flex-row justify-between items-center gap-4 text-[#a1a1a1] text-xs leading-4">
+        <span>&copy; 2026 RepoX &middot; Buy. Sell. Build.</span>
+        <div class="flex items-center gap-6">
+            <a href="#" class="hover:text-neutral-50 transition">Documentation</a>
+            <a href="#" class="hover:text-neutral-50 transition">Seller guidelines</a>
+            <a href="#" class="hover:text-neutral-50 transition">Privacy</a>
+            <a href="#" class="hover:text-neutral-50 transition">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<script src="/javascripts/navbar.js"></script>
+</body>
+</html>
