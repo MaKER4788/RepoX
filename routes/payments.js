@@ -1,3 +1,4 @@
+var path = require("path");
 var express = require("express");
 var router = express.Router();
 const Project = require("../models/project");
@@ -15,7 +16,7 @@ router.post("/success", isLoggedIn, async function (req, res, next) {
     if (req.body.projectId && /^[0-9a-fA-F]{24}$/.test(req.body.projectId)) {
       project = await Project.findOne({ _id: req.body.projectId, published: true });
     }
-    res.render("thankyou", { project: project || null });
+    res.sendFile(path.join(__dirname, '..', 'html', 'thankyou.html'));
   } catch (err) {
     next(err);
   }

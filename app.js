@@ -144,11 +144,11 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render custom 404 page, or generic error page for other statuses
-  res.status(err.status || 500);
+    res.status(err.status || 500);
   if (err.status === 404) {
-    res.render('404');
+    res.sendFile(path.join(__dirname, 'html', '404.html'));
   } else {
-    res.render('error');
+    res.sendFile(path.join(__dirname, 'html', 'error.html'));
   }
 });
 

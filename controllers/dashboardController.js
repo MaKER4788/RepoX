@@ -1,3 +1,4 @@
+const path = require("path");
 const Project = require("../models/project");
 
 exports.getDashboard = async (req, res) => {
@@ -6,10 +7,7 @@ exports.getDashboard = async (req, res) => {
         owner: req.user._id
     }).sort({ createdAt: -1 });
 
-    res.render("dashboard", {
-        user: req.user,
-        projects
-    });
+    res.sendFile(path.join(__dirname, "..", "html", "dashboard.html"));
 
 };
 

@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const router = express.Router();
 const rateLimit = require("express-rate-limit");
@@ -25,7 +26,7 @@ const registerLimiter = rateLimit({
 
 // Register
 router.get("/register", function(req, res) {
-    res.render("register");
+    res.sendFile(path.join(__dirname, '..', 'html', 'register.html'));
 });
 router.post("/register", registerLimiter, async function (req, res, next) {
   try {
@@ -46,7 +47,7 @@ router.post("/register", registerLimiter, async function (req, res, next) {
   }
 });
 router.get("/login", function(req, res) {
-    res.render("login");
+    res.sendFile(path.join(__dirname, '..', 'html', 'login.html'));
 });
 
 router.post("/login", loginLimiter, passport.authenticate("local",{

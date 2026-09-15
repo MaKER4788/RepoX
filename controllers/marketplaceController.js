@@ -1,3 +1,4 @@
+const path = require("path");
 const Project = require("../models/project");
 
 // Escape regex metacharacters in user input to prevent ReDoS / regex abuse.
@@ -77,19 +78,6 @@ const totalProjects = await Project.countDocuments(filter);
         .skip((page-1)*limit)
         .limit(limit);
 const totalPages = Math.ceil(totalProjects/limit);
-    res.render("marketplace", {
-
-        projects,
-        user: req.user,
-        search,
-        category,
-        tech,
-        max,
-        min,
-        sort,
-        page,
-        totalPages
-
-    });
+    res.sendFile(path.join(__dirname, "..", "html", "marketplace.html"));
 
 };

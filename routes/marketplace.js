@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const router = express.Router();
 const marketplaceController = require("../controllers/marketplaceController");
@@ -9,10 +10,7 @@ router.get("/marketplace", async (req, res) => {
         .populate("owner")
         .sort({ createdAt: -1});
         
-    res.render("marketplace", {
-        projects,
-        user: req.user
-    });
+    res.sendFile(path.join(__dirname, '..', 'html', 'marketplace.html'));
 
 });
 module.exports = router;

@@ -1,5 +1,5 @@
 
-
+const path = require("path");
 const Project = require("../models/project");
 const { uploadBuffer } = require("../config/cloudinary");
 
@@ -109,9 +109,7 @@ exports.editProjectPage = async (req, res) => {
         return res.status(403).send("Unauthorized");
     }
 
-    res.render("editProject", {
-        project
-    });
+    res.sendFile(path.join(__dirname, "..", "html", "editproject.html"));
 
 };
 exports.updateProject = async (req, res) => {
@@ -235,10 +233,7 @@ exports.getProject = async (req, res) => {
         .populate("owner")
         .limit(3);
 
-        res.render("project", {
-            project,
-            relatedProjects
-        });
+        res.sendFile(path.join(__dirname, "..", "html", "project.html"));
 
     } catch (err) {
 

@@ -1,12 +1,13 @@
+const path = require("path");
 const User = require("../models/user");
 const passport = require("passport");
 
 exports.registerPage = (req, res) => {
-    res.render("register");
+    res.sendFile(path.join(__dirname, "..", "html", "register.html"));
 };
 
 exports.loginPage = (req, res) => {
-    res.render("login");
+    res.sendFile(path.join(__dirname, "..", "html", "login.html"));
 };
 
 exports.register = async (req, res, next) => {

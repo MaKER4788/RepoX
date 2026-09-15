@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var path = require('path');
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const userModel = require("../models/user");
@@ -26,18 +27,18 @@ router.get('/', async function(req, res, next) {
       .sort({ createdAt: -1 })
       .limit(3);
 
-    res.render('index', { featuredProjects, trendingProjects, newProjects });
+    res.sendFile(path.join(__dirname, '..', 'html', 'index.html'));
   } catch(err) {
     next(err);
   }
 });
 
 router.get("/upload", function(req, res) {
-  res.render("upload", { project: null });
+  res.sendFile(path.join(__dirname, '..', 'html', 'upload.html'));
 });
 
 router.get('/categories', function(req, res, next) {
-  res.render('categories');
+  res.sendFile(path.join(__dirname, '..', 'html', 'categories.html'));
 });
 
 module.exports = router;
